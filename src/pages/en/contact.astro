@@ -90,7 +90,10 @@ const t = useTranslations('en');
         <h2 class="text-2xl font-bold mb-6">Contact Information</h2>
         <div class="space-y-4">
           <p class="text-slate-700">
-            <strong>Email:</strong> <a href="mailto:info@modernash.com" class="text-orange-600 hover:text-orange-700">info@modernash.com</a>
+            <strong>Email:</strong> <a href="mailto:sales@modern-ash.com" class="text-slate-800 hover:text-slate-900 font-medium">sales@modern-ash.com</a>
+          </p>
+          <p class="text-slate-700">
+            <strong>General information:</strong> <a href="mailto:info@modern-ash.com" class="text-slate-800 hover:text-slate-900 font-medium">info@modern-ash.com</a>
           </p>
           <p class="text-slate-700">
             <strong>AWS Marketplace:</strong> Available as Professional Services
@@ -113,16 +116,39 @@ const t = useTranslations('en');
 
     if (!messageDiv) return;
 
+    // Get form data
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      message: formData.get('message'),
+      to: 'sales@modern-ash.com',
+      subject: `New inquiry from ${formData.get('name')} - ${formData.get('company') || 'No company'}`,
+    };
+
     try {
-      // Here you would integrate with your email service (e.g., SendGrid, AWS SES, etc.)
-      // For now we just simulate sending
+      // Here you can integrate with your preferred email service
+      // For example: Cloudflare Workers, SendGrid, AWS SES, etc.
+
+      // Example with Cloudflare Workers endpoint (you'll need to create this endpoint):
+      // const response = await fetch('/api/send-email', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(data),
+      // });
+
+      // For now, we simulate sending and show data in console
+      console.log('Form data:', data);
+
+      // Simulate successful sending
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      messageDiv.textContent = 'Message sent! We\'ll contact you soon.';
+      messageDiv.textContent = 'Message received. A specialist will contact you shortly. You can also write directly to sales@modern-ash.com';
       messageDiv.className = 'p-4 rounded-lg bg-green-100 text-green-800 border border-green-200';
       form.reset();
     } catch (error) {
-      messageDiv.textContent = 'There was an error sending the message. Please try again.';
+      console.error('Error:', error);
+      messageDiv.textContent = 'There was an error sending the message. Please write directly to sales@modern-ash.com';
       messageDiv.className = 'p-4 rounded-lg bg-red-100 text-red-800 border border-red-200';
     }
 
