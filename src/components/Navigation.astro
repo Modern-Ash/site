@@ -10,7 +10,10 @@ const t = useTranslations(lang);
     <div class="flex justify-between items-center h-20">
       <div class="flex items-center">
         <a href={lang === 'es' ? '/' : '/en'} class="flex items-center space-x-3">
-          <img src="/logo.svg" alt="ModernAsh" class="h-12" />
+          <img src="/logo.svg" alt="ModernAsh" class="h-10 w-10" />
+          <span class="text-2xl font-bold text-slate-900">
+            Modern<span class="text-slate-600">Ash</span>
+          </span>
         </a>
       </div>
 
@@ -36,8 +39,19 @@ const t = useTranslations(lang);
       </div>
 
       <div class="flex items-center space-x-4">
-        <a href={lang === 'es' ? '/en' : '/'} class="text-sm text-slate-600 hover:text-slate-900 font-medium uppercase tracking-wide">
-          {lang === 'es' ? 'EN' : 'ES'}
+        <a href={lang === 'es' ? '/en' : '/'}
+           class="flex items-center space-x-2 px-3 py-2 rounded hover:bg-slate-100 transition-colors group">
+          {lang === 'es' ? (
+            <>
+              <span class="text-xl">🇺🇸</span>
+              <span class="text-sm text-slate-600 group-hover:text-slate-900 font-medium">EN</span>
+            </>
+          ) : (
+            <>
+              <span class="text-xl">🇪🇸</span>
+              <span class="text-sm text-slate-600 group-hover:text-slate-900 font-medium">ES</span>
+            </>
+          )}
         </a>
       </div>
     </div>
