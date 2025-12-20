@@ -1,9 +1,27 @@
-<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Modern professional logo for ModernAsh -->
-  <text x="0" y="40" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#1e293b">
-    Modern<tspan fill="#475569">Ash</tspan>
+<svg width="240" height="60" viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- ModernAsh Corporate Logo -->
+
+  <!-- Abstract geometric symbol representing transformation/modernization -->
+  <g transform="translate(5, 5)">
+    <!-- Outer shape - represents legacy -->
+    <path d="M25 5 L45 15 L45 35 L25 45 L5 35 L5 15 Z" fill="#334155" opacity="0.3"/>
+
+    <!-- Inner ascending shapes - represents modernization -->
+    <path d="M15 30 L20 25 L20 35 L15 40 Z" fill="#475569"/>
+    <path d="M22 22 L27 17 L27 27 L22 32 Z" fill="#64748b"/>
+    <path d="M29 14 L34 9 L34 19 L29 24 Z" fill="#94a3b8"/>
+
+    <!-- Connection lines - represents transformation -->
+    <line x1="17.5" y1="32.5" x2="24.5" y2="24.5" stroke="#475569" stroke-width="1.5"/>
+    <line x1="24.5" y1="24.5" x2="31.5" y2="16.5" stroke="#64748b" stroke-width="1.5"/>
+  </g>
+
+  <!-- Company name -->
+  <text x="65" y="38" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="700" fill="#1e293b" letter-spacing="-0.5">
+    Modern<tspan fill="#64748b">Ash</tspan>
   </text>
-  <rect x="0" y="48" width="80" height="3" fill="#1e293b"/>
-  <rect x="83" y="48" width="80" height="3" fill="#64748b"/>
+
+  <!-- Subtle underline accent -->
+  <rect x="65" y="45" width="90" height="2" fill="#94a3b8" opacity="0.5"/>
 </svg>
 
