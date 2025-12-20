@@ -2,6 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
 ---
 
 <MainLayout
@@ -10,17 +11,16 @@ import Footer from '../components/Footer.astro';
 >
   <Navigation />
 
-  <section class="py-20 bg-slate-50">
+  <HeroSection title="Recursos ModernAsh" logoVisible={true}>
+    <Fragment slot="subtitle">
+      <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
+        Insights sobre modernización empresarial de aplicaciones legacy
+      </p>
+    </Fragment>
+  </HeroSection>
+
+  <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <div class="flex justify-center mb-6">
-          <img src="/logo.png" alt="ModernAsh" class="h-20 md:h-24 w-20 md:w-24" />
-        </div>
-        <h1 class="text-4xl font-bold mb-4">Recursos ModernAsh</h1>
-        <p class="text-xl text-slate-600">
-          Insights sobre modernización empresarial de aplicaciones legacy
-        </p>
-      </div>
 
       <div class="max-w-3xl mx-auto text-center py-12">
         <p class="text-slate-600 text-lg mb-6">

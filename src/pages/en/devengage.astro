@@ -2,6 +2,7 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import Footer from '../../components/Footer.astro';
+import HeroSection from '../../components/HeroSection.astro';
 ---
 
 <MainLayout
@@ -10,25 +11,19 @@ import Footer from '../../components/Footer.astro';
 >
   <Navigation />
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-br from-blue-900 via-indigo-800 to-blue-900 text-white py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <div class="flex justify-center mb-6">
-          <img src="/logo.png" alt="ModernAsh" class="h-20 md:h-24 w-20 md:w-24" />
-        </div>
-        <h1 class="text-5xl md:text-6xl font-bold mb-6">
-          DevEngage<span class="text-blue-400">.AI</span>
-        </h1>
-        <p class="text-2xl mb-4 text-blue-100">
-          AI as a real member of your development team
-        </p>
-        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
-          Integrate generative AI into your development lifecycle in a secure, governed and measurable way
-        </p>
-      </div>
-    </div>
-  </section>
+  <HeroSection logoVisible={true} theme="blue">
+    <Fragment slot="title">
+      DevEngage<span class="text-blue-400">.AI</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      <p class="text-2xl mb-4 text-blue-100">
+        AI as a real member of your development team
+      </p>
+      <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+        Integrate generative AI into your development lifecycle in a secure, governed and measurable way
+      </p>
+    </Fragment>
+  </HeroSection>
 
   <!-- Problem -->
   <section class="py-20 bg-white">

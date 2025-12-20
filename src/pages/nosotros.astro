@@ -2,6 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
 import { useTranslations } from '../i18n/utils';
 
 const t = useTranslations('es');
@@ -13,18 +14,13 @@ const t = useTranslations('es');
 >
   <Navigation />
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="flex justify-center mb-6">
-        <img src="/logo.png" alt="ModernAsh" class="h-20 md:h-24 w-20 md:w-24" />
-      </div>
-      <h1 class="text-5xl font-bold mb-6">{t('team.title')}</h1>
-      <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+  <HeroSection title={t('team.title')} logoVisible={true}>
+    <Fragment slot="subtitle">
+      <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
         {t('team.subtitle')}
       </p>
-    </div>
-  </section>
+    </Fragment>
+  </HeroSection>
 
   <!-- Sobre ModernAsh -->
   <section class="py-20 bg-white">

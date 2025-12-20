@@ -1,0 +1,38 @@
+<!-- Componente reutilizable para Hero Section estandarizado -->
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  logoVisible?: boolean;
+  theme?: 'default' | 'blue';
+}
+
+const { title, subtitle, logoVisible = true, theme = 'default' } = Astro.props;
+
+const bgClass = theme === 'blue'
+  ? 'bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800'
+  : 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900';
+---
+
+<section class={`${bgClass} text-white py-24 min-h-[600px] flex items-center`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="text-center">
+      {logoVisible && (
+        <div class="flex justify-center mb-6">
+          <img src="/logo.png" alt="ModernAsh" class="h-20 md:h-24 w-20 md:w-24" />
+        </div>
+      )}
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 max-w-4xl mx-auto">
+        <slot name="title">{title}</slot>
+      </h1>
+      {subtitle && (
+        <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+      <slot name="subtitle" />
+      <slot name="cta" />
+    </div>
+  </div>
+</section>
+

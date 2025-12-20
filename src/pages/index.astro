@@ -2,6 +2,7 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
 import { useTranslations } from '../i18n/utils';
 
 const t = useTranslations('es');
@@ -11,65 +12,55 @@ const t = useTranslations('es');
   title="Inicio"
   description="ModernAsh - Modernización inteligente de aplicaciones legacy en AWS. Transformá COBOL, mainframe y Java antiguo a arquitecturas modernas."
 >
-
   <Navigation />
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <div class="text-center">
-        <!-- Logo -->
-        <div class="flex justify-center mb-6">
-          <img src="/logo.png" alt="ModernAsh" class="h-20 md:h-24 w-20 md:w-24" />
-        </div>
-        <!-- Título -->
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-5xl mx-auto">
-          {t('home.hero.title')}
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto">
-          {t('home.hero.subtitle')}
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contacto" class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
-            {t('home.cta.poc')}
-          </a>
-          <a href="/servicios" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
-            {t('home.cta.contact')}
-          </a>
-        </div>
+  <HeroSection title={t('home.hero.title')} logoVisible={true}>
+    <Fragment slot="subtitle">
+      <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-8">
+        {t('home.hero.subtitle')}
+      </p>
+    </Fragment>
+    <Fragment slot="cta">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+        <a href="/contacto" class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+          {t('home.cta.poc')}
+        </a>
+        <a href="/servicios" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+          {t('home.cta.contact')}
+        </a>
       </div>
-    </div>
-  </section>
+    </Fragment>
+  </HeroSection>
 
   <!-- Problema Section -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-center mb-12">El Problema</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">El Problema</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-          <div class="text-red-600 text-3xl mb-4">⚠️</div>
-          <h3 class="text-xl font-semibold mb-3">Aplicaciones Legacy Críticas</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+          <div class="text-slate-600 text-3xl mb-4">⚠️</div>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Aplicaciones Legacy Críticas</h3>
           <p class="text-slate-700">
             Millones de líneas de código COBOL, mainframe y monolitos antiguos difíciles de mantener y costosos de operar.
           </p>
         </div>
-        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-          <div class="text-orange-600 text-3xl mb-4">💰</div>
-          <h3 class="text-xl font-semibold mb-3">Costos Crecientes</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+          <div class="text-slate-600 text-3xl mb-4">💰</div>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Costos Crecientes</h3>
           <p class="text-slate-700">
             Infraestructura obsoleta y perfiles especializados cada vez más escasos y caros.
           </p>
         </div>
-        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-          <div class="text-yellow-600 text-3xl mb-4">🔒</div>
-          <h3 class="text-xl font-semibold mb-3">Riesgo Operativo</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+          <div class="text-slate-600 text-3xl mb-4">🔒</div>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Riesgo Operativo</h3>
           <p class="text-slate-700">
             Obsolescencia tecnológica que genera riesgos operativos y regulatorios críticos.
           </p>
         </div>
-        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-          <div class="text-blue-600 text-3xl mb-4">☕</div>
-          <h3 class="text-xl font-semibold mb-3">Java Antiguo</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+          <div class="text-slate-600 text-3xl mb-4">☕</div>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Java Antiguo</h3>
           <p class="text-slate-700">
             Aplicaciones Java atrapadas en versiones viejas sin poder aprovechar las mejoras modernas del lenguaje.
           </p>
@@ -79,9 +70,9 @@ const t = useTranslations('es');
   </section>
 
   <!-- Solución Section -->
-  <section class="py-20 bg-slate-50">
+  <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-center mb-12">Nuestra Solución</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">Nuestra Solución</h2>
       <div class="max-w-3xl mx-auto text-center mb-12">
         <p class="text-xl text-slate-700">
           <strong>ModernAsh</strong> combina IA + experiencia real en migraciones para modernizar aplicaciones legacy
@@ -89,23 +80,23 @@ const t = useTranslations('es');
         </p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-200 text-center">
           <div class="text-4xl mb-4">🤖</div>
-          <h3 class="text-xl font-semibold mb-3">IA + Experiencia</h3>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">IA + Experiencia</h3>
           <p class="text-slate-700">
             Usamos IA para acelerar análisis y refactors, siempre con revisión de ingenieros senior.
           </p>
         </div>
-        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-200 text-center">
           <div class="text-4xl mb-4">✅</div>
-          <h3 class="text-xl font-semibold mb-3">Tests & Documentación</h3>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Tests & Documentación</h3>
           <p class="text-slate-700">
             Código moderno con tests automatizados y documentación completa desde el día 1.
           </p>
         </div>
-        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-200 text-center">
           <div class="text-4xl mb-4">☁️</div>
-          <h3 class="text-xl font-semibold mb-3">Cloud-Native en AWS</h3>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Cloud-Native en AWS</h3>
           <p class="text-slate-700">
             Arquitecturas modernas optimizadas para AWS con patrones cloud-native.
           </p>
@@ -115,10 +106,10 @@ const t = useTranslations('es');
   </section>
 
   <!-- PoC Section -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg p-12 border border-slate-300">
-        <h2 class="text-4xl font-bold text-center mb-6">Prueba de Concepto de Bajo Riesgo</h2>
+      <div class="bg-white rounded-lg p-12 border border-slate-200 shadow-sm">
+        <h2 class="text-4xl font-bold text-center mb-6 text-slate-900">Prueba de Concepto de Bajo Riesgo</h2>
         <p class="text-xl text-center text-slate-700 mb-12 max-w-3xl mx-auto">
           Validamos la modernización en un módulo real con riesgo controlado y visibilidad completa
         </p>
@@ -176,9 +167,9 @@ const t = useTranslations('es');
   </section>
 
   <!-- Team Section -->
-  <section class="py-20 bg-slate-50">
+  <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-center mb-4">{t('team.title')}</h2>
+      <h2 class="text-4xl font-bold text-center mb-4 text-slate-900">{t('team.title')}</h2>
       <p class="text-xl text-center text-slate-600 mb-12">
         {t('team.subtitle')}
       </p>

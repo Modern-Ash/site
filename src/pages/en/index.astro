@@ -2,6 +2,7 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import Footer from '../../components/Footer.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import { useTranslations } from '../../i18n/utils';
 
 const t = useTranslations('en');
@@ -13,65 +14,53 @@ const t = useTranslations('en');
 >
   <Navigation />
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <div class="text-center">
-        <!-- Logo -->
-        <div class="flex justify-center mb-6">
-          <img src="/logo.png" alt="ModernAsh" class="h-20 md:h-24 w-20 md:w-24" />
-        </div>
-        <!-- Title -->
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-5xl mx-auto">
-          {t('home.hero.title')}
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto">
-          {t('home.hero.subtitle')}
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/en/contact" class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
-            {t('home.cta.poc')}
-          </a>
-          <a href="/en/services" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
-            {t('home.cta.contact')}
-          </a>
-        </div>
+  <HeroSection title={t('home.hero.title')} logoVisible={true}>
+    <Fragment slot="subtitle">
+      <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-8">
+        {t('home.hero.subtitle')}
+      </p>
+    </Fragment>
+    <Fragment slot="cta">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+        <a href="/en/contact" class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+          {t('home.cta.poc')}
+        </a>
+        <a href="/en/services" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+          {t('home.cta.contact')}
+        </a>
       </div>
-    </div>
-  </section>
+    </Fragment>
+  </HeroSection>
 
   <!-- Problem Section -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-center mb-6">
-        <img src="/logo.png" alt="ModernAsh" class="h-16 w-16" />
-      </div>
-      <h2 class="text-4xl font-bold text-center mb-12">The Problem</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">The Problem</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-          <div class="text-red-600 text-3xl mb-4">⚠️</div>
-          <h3 class="text-xl font-semibold mb-3">Critical Legacy Applications</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+          <div class="text-slate-600 text-3xl mb-4">⚠️</div>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Critical Legacy Applications</h3>
           <p class="text-slate-700">
             Millions of lines of COBOL, mainframe and legacy monolith code that are difficult to maintain and expensive to operate.
           </p>
         </div>
-        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-          <div class="text-orange-600 text-3xl mb-4">💰</div>
-          <h3 class="text-xl font-semibold mb-3">Rising Costs</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+          <div class="text-slate-600 text-3xl mb-4">💰</div>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Rising Costs</h3>
           <p class="text-slate-700">
             Obsolete infrastructure and specialized profiles increasingly scarce and expensive.
           </p>
         </div>
-        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-          <div class="text-yellow-600 text-3xl mb-4">🔒</div>
-          <h3 class="text-xl font-semibold mb-3">Operational Risk</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+          <div class="text-slate-600 text-3xl mb-4">🔒</div>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Operational Risk</h3>
           <p class="text-slate-700">
             Technological obsolescence generating critical operational and regulatory risks.
           </p>
         </div>
-        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
-          <div class="text-blue-600 text-3xl mb-4">☕</div>
-          <h3 class="text-xl font-semibold mb-3">Legacy Java</h3>
+        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+          <div class="text-slate-600 text-3xl mb-4">☕</div>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Legacy Java</h3>
           <p class="text-slate-700">
             Java applications stuck on old versions unable to leverage modern language improvements.
           </p>
@@ -81,9 +70,9 @@ const t = useTranslations('en');
   </section>
 
   <!-- Solution Section -->
-  <section class="py-20 bg-slate-50">
+  <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-center mb-12">Our Solution</h2>
+      <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">Our Solution</h2>
       <div class="max-w-3xl mx-auto text-center mb-12">
         <p class="text-xl text-slate-700">
           <strong>ModernAsh</strong> combines AI + real migration experience to modernize legacy applications
@@ -91,23 +80,23 @@ const t = useTranslations('en');
         </p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-200 text-center">
           <div class="text-4xl mb-4">🤖</div>
-          <h3 class="text-xl font-semibold mb-3">AI + Experience</h3>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">AI + Experience</h3>
           <p class="text-slate-700">
             We use AI to accelerate analysis and refactors, always with senior engineer review.
           </p>
         </div>
-        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-200 text-center">
           <div class="text-4xl mb-4">✅</div>
-          <h3 class="text-xl font-semibold mb-3">Tests & Documentation</h3>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Tests & Documentation</h3>
           <p class="text-slate-700">
             Modern code with automated tests and complete documentation from day 1.
           </p>
         </div>
-        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-200 text-center">
           <div class="text-4xl mb-4">☁️</div>
-          <h3 class="text-xl font-semibold mb-3">Cloud-Native on AWS</h3>
+          <h3 class="text-xl font-semibold mb-3 text-slate-900">Cloud-Native on AWS</h3>
           <p class="text-slate-700">
             Modern architectures optimized for AWS with cloud-native patterns.
           </p>
@@ -117,10 +106,10 @@ const t = useTranslations('en');
   </section>
 
   <!-- PoC Section -->
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-12 border border-orange-200">
-        <h2 class="text-4xl font-bold text-center mb-6">Low-Cost PoC</h2>
+      <div class="bg-white rounded-lg p-12 border border-slate-200 shadow-sm">
+        <h2 class="text-4xl font-bold text-center mb-6 text-slate-900">Low-Cost Proof of Concept</h2>
         <p class="text-xl text-center text-slate-700 mb-12 max-w-3xl mx-auto">
           Test modernization on a real module with minimum risk and maximum visibility
         </p>
@@ -169,8 +158,8 @@ const t = useTranslations('en');
           </div>
         </div>
         <div class="text-center mt-8">
-          <a href="/en/contact" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-            Request PoC
+          <a href="/en/contact" class="inline-block bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 rounded font-semibold transition-colors">
+            Request Proof of Concept
           </a>
         </div>
       </div>
@@ -178,7 +167,7 @@ const t = useTranslations('en');
   </section>
 
   <!-- Team Section -->
-  <section class="py-20 bg-slate-50">
+  <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-4xl font-bold text-center mb-4">{t('team.title')}</h2>
       <p class="text-xl text-center text-slate-600 mb-12">
