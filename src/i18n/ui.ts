@@ -1,0 +1,56 @@
+export const languages = {
+  es: 'Español',
+  en: 'English',
+};
+
+export const defaultLang = 'es';
+
+export const ui = {
+  es: {
+    'nav.home': 'Inicio',
+    'nav.services': 'Servicios',
+    'nav.devengage': 'DevEngage.AI',
+    'nav.about': 'Nosotros',
+    'nav.blog': 'Recursos',
+    'nav.contact': 'Contacto',
+    'home.hero.title': 'Modernización Empresarial de Aplicaciones Legacy',
+    'home.hero.subtitle': 'Transformamos sistemas COBOL, mainframe y Java legacy a arquitecturas modernas en AWS con inteligencia artificial, testing integral y documentación completa',
+    'home.cta.poc': 'Iniciar Prueba de Concepto',
+    'home.cta.contact': 'Contactar',
+    'contact.title': 'Contacto',
+    'contact.subtitle': 'Nuestros especialistas están disponibles para evaluar su proyecto de modernización',
+    'contact.name': 'Nombre completo',
+    'contact.email': 'Correo electrónico corporativo',
+    'contact.company': 'Organización',
+    'contact.message': 'Mensaje',
+    'contact.send': 'Enviar consulta',
+    'contact.success': 'Mensaje recibido. Un especialista se pondrá en contacto a la brevedad.',
+    'footer.rights': 'Todos los derechos reservados',
+    'team.title': 'Nuestro Equipo',
+    'team.subtitle': 'Experiencia comprobada en transformación tecnológica empresarial',
+  },
+  en: {
+    'nav.home': 'Home',
+    'nav.services': 'Services',
+    'nav.devengage': 'DevEngage.AI',
+    'nav.about': 'About',
+    'nav.blog': 'Resources',
+    'nav.contact': 'Contact',
+    'home.hero.title': 'Enterprise Legacy Application Modernization',
+    'home.hero.subtitle': 'We transform COBOL, mainframe and legacy Java systems to modern AWS architectures with artificial intelligence, comprehensive testing and complete documentation',
+    'home.cta.poc': 'Request Proof of Concept',
+    'home.cta.contact': 'Contact Us',
+    'contact.title': 'Contact',
+    'contact.subtitle': 'Our specialists are available to evaluate your modernization project',
+    'contact.name': 'Full name',
+    'contact.email': 'Corporate email',
+    'contact.company': 'Organization',
+    'contact.message': 'Message',
+    'contact.send': 'Submit inquiry',
+    'contact.success': 'Message received. A specialist will contact you shortly.',
+    'footer.rights': 'All rights reserved',
+    'team.title': 'Our Team',
+    'team.subtitle': 'Proven experience in enterprise technology transformation',
+  },
+} as const;
+

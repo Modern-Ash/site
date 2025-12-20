@@ -1,0 +1,207 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('en');
+---
+
+<MainLayout
+  title="Home"
+  description="ModernAsh - AI-Assisted Legacy Modernization on AWS. Transform COBOL, mainframe and legacy Java to modern architectures."
+>
+  <Navigation />
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">
+          {t('home.hero.title')}
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto">
+          {t('home.hero.subtitle')}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/en/contact" class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+            {t('home.cta.poc')}
+          </a>
+          <a href="/en/services" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+            {t('home.cta.contact')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">The Problem</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <div class="text-red-600 text-3xl mb-4">⚠️</div>
+          <h3 class="text-xl font-semibold mb-3">Critical Legacy Applications</h3>
+          <p class="text-slate-700">
+            Millions of lines of COBOL, mainframe and legacy monolith code that are difficult to maintain and expensive to operate.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <div class="text-orange-600 text-3xl mb-4">💰</div>
+          <h3 class="text-xl font-semibold mb-3">Rising Costs</h3>
+          <p class="text-slate-700">
+            Obsolete infrastructure and specialized profiles increasingly scarce and expensive.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <div class="text-yellow-600 text-3xl mb-4">🔒</div>
+          <h3 class="text-xl font-semibold mb-3">Operational Risk</h3>
+          <p class="text-slate-700">
+            Technological obsolescence generating critical operational and regulatory risks.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <div class="text-blue-600 text-3xl mb-4">☕</div>
+          <h3 class="text-xl font-semibold mb-3">Legacy Java</h3>
+          <p class="text-slate-700">
+            Java applications stuck on old versions unable to leverage modern language improvements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">Our Solution</h2>
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <p class="text-xl text-slate-700">
+          <strong>ModernAsh</strong> combines AI + real migration experience to modernize legacy applications
+          to <strong>Java, Python or Node.js on AWS</strong>, with a low-risk, high-visibility model.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+          <div class="text-4xl mb-4">🤖</div>
+          <h3 class="text-xl font-semibold mb-3">AI + Experience</h3>
+          <p class="text-slate-700">
+            We use AI to accelerate analysis and refactors, always with senior engineer review.
+          </p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+          <div class="text-4xl mb-4">✅</div>
+          <h3 class="text-xl font-semibold mb-3">Tests & Documentation</h3>
+          <p class="text-slate-700">
+            Modern code with automated tests and complete documentation from day 1.
+          </p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+          <div class="text-4xl mb-4">☁️</div>
+          <h3 class="text-xl font-semibold mb-3">Cloud-Native on AWS</h3>
+          <p class="text-slate-700">
+            Modern architectures optimized for AWS with cloud-native patterns.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PoC Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-12 border border-orange-200">
+        <h2 class="text-4xl font-bold text-center mb-6">Low-Cost PoC</h2>
+        <p class="text-xl text-center text-slate-700 mb-12 max-w-3xl mx-auto">
+          Test modernization on a real module with minimum risk and maximum visibility
+        </p>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">What We Do</h3>
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-2">✓</span>
+                AI-assisted analysis of your legacy code
+              </li>
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-2">✓</span>
+                Migration to modern Java, Python or Node.js
+              </li>
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-2">✓</span>
+                Updated cloud-native architecture
+              </li>
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-2">✓</span>
+                AWS deployment with best practices
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">What You Get</h3>
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-2">✓</span>
+                Modern, clean and modular code
+              </li>
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-2">✓</span>
+                Complete unit and integration tests
+              </li>
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-2">✓</span>
+                Technical documentation (UML, diagrams, README)
+              </li>
+              <li class="flex items-start">
+                <span class="text-orange-600 mr-2">✓</span>
+                Complete modernization roadmap
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <a href="/en/contact" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+            Request PoC
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-4">{t('team.title')}</h2>
+      <p class="text-xl text-center text-slate-600 mb-12">
+        {t('team.subtitle')}
+      </p>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-lg text-slate-700 mb-6">
+          We are a team of professionals with <strong>decades of experience</strong> in software development,
+          systems architecture, cloud computing and enterprise application modernization.
+        </p>
+        <p class="text-lg text-slate-700">
+          Our background includes complex migration projects, large-scale technology transformations
+          and implementing best practices in development teams across all types of industries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-6">Ready to Modernize?</h2>
+      <p class="text-xl mb-8 text-slate-300">
+        Schedule a discovery call and start your ModernAsh PoC
+      </p>
+      <a href="/en/contact" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+        Contact Us Now
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+

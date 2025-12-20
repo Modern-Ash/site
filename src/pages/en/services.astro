@@ -1,0 +1,192 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<MainLayout
+  title="Services"
+  description="ModernAsh legacy application modernization services: COBOL migration, Java upgrades and DevEngage.AI."
+>
+  <Navigation />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl font-bold mb-6">Our Services</h1>
+      <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+        Complete AI-assisted modernization solutions
+      </p>
+    </div>
+  </section>
+
+  <!-- Legacy Modernization -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl font-bold mb-6">Legacy Modernization</h2>
+          <p class="text-lg text-slate-700 mb-6">
+            We migrate COBOL, mainframe and legacy monoliths to modern architectures
+            in <strong>Java, Python or Node.js on AWS</strong>.
+          </p>
+          <h3 class="text-2xl font-semibold mb-4">What's included?</h3>
+          <ul class="space-y-3 text-slate-700">
+            <li class="flex items-start">
+              <span class="text-orange-600 mr-2">✓</span>
+              Complete AI-assisted analysis
+            </li>
+            <li class="flex items-start">
+              <span class="text-orange-600 mr-2">✓</span>
+              Migration to modern languages and frameworks
+            </li>
+            <li class="flex items-start">
+              <span class="text-orange-600 mr-2">✓</span>
+              Cloud-native architecture design
+            </li>
+            <li class="flex items-start">
+              <span class="text-orange-600 mr-2">✓</span>
+              Automated tests (unit and integration)
+            </li>
+            <li class="flex items-start">
+              <span class="text-orange-600 mr-2">✓</span>
+              Complete technical documentation
+            </li>
+            <li class="flex items-start">
+              <span class="text-orange-600 mr-2">✓</span>
+              AWS deployment with CI/CD
+            </li>
+          </ul>
+        </div>
+        <div class="bg-slate-50 p-8 rounded-lg border border-slate-200">
+          <h3 class="text-2xl font-semibold mb-4">Source technologies</h3>
+          <div class="space-y-2 mb-6">
+            <div class="bg-white p-3 rounded">COBOL</div>
+            <div class="bg-white p-3 rounded">Mainframe (z/OS, AS/400)</div>
+            <div class="bg-white p-3 rounded">Legacy Java 6/7/8</div>
+            <div class="bg-white p-3 rounded">Legacy monoliths</div>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4">Target technologies</h3>
+          <div class="space-y-2">
+            <div class="bg-orange-50 p-3 rounded border border-orange-200">Modern Java (LTS)</div>
+            <div class="bg-orange-50 p-3 rounded border border-orange-200">Python</div>
+            <div class="bg-orange-50 p-3 rounded border border-orange-200">Node.js</div>
+            <div class="bg-orange-50 p-3 rounded border border-orange-200">AWS Cloud Services</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Java Modernization -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-4xl font-bold mb-6">Java Upgrades</h2>
+        <p class="text-xl text-slate-700">
+          We take your Java applications from old versions (6, 7, 8) to modern LTS versions,
+          with architectural redesign and AWS optimization.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+          <div class="text-3xl mb-4">☕</div>
+          <h3 class="text-xl font-semibold mb-3">Version Uplift</h3>
+          <p class="text-slate-700">
+            Upgrade from Java 6/7/8 to modern LTS versions (17, 21) with guaranteed compatibility.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+          <div class="text-3xl mb-4">🏗️</div>
+          <h3 class="text-xl font-semibold mb-3">Architectural Redesign</h3>
+          <p class="text-slate-700">
+            Pattern modernization: from monolith to microservices, hexagonal architecture, event-driven.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+          <div class="text-3xl mb-4">⚡</div>
+          <h3 class="text-xl font-semibold mb-3">AWS Optimization</h3>
+          <p class="text-slate-700">
+            Containers, serverless, auto-scaling and observability with AWS native services.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DevEngage.AI -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-6">DevEngage.AI</h2>
+        <p class="text-xl text-slate-700 max-w-3xl mx-auto">
+          We integrate generative AI as a <strong>real member of the development team</strong>,
+          automating tests, documentation and repetitive tasks.
+        </p>
+      </div>
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-12 border border-blue-200">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">What is DevEngage.AI?</h3>
+            <p class="text-slate-700 mb-4">
+              A consulting service that defines how AI integrates into the complete development lifecycle (SDLC).
+            </p>
+            <ul class="space-y-2 text-slate-700">
+              <li>• Spec Driven Development (SDD)</li>
+              <li>• Automatic test generation</li>
+              <li>• Continuous documentation</li>
+              <li>• Compatible with Scrum, Kanban and derivatives</li>
+              <li>• Language agnostic</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">Benefits</h3>
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex items-start">
+                <span class="text-blue-600 mr-2">✓</span>
+                More quality and test coverage
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-600 mr-2">✓</span>
+                Always up-to-date documentation
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-600 mr-2">✓</span>
+                Team focused on creativity and design
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-600 mr-2">✓</span>
+                Greater throughput without burnout
+              </li>
+              <li class="flex items-start">
+                <span class="text-blue-600 mr-2">✓</span>
+                Clear governance and metrics
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <a href="/en/devengage" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+            Learn more about DevEngage.AI
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-6">Ready to start?</h2>
+      <p class="text-xl text-slate-700 mb-8">
+        Start with a low-cost PoC and discover the modernization potential
+      </p>
+      <a href="/en/contact" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+        Request PoC
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+

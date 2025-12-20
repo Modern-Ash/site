@@ -1,11 +1,207 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations } from '../i18n/utils';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const t = useTranslations('es');
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout
+  title="Inicio"
+  description="ModernAsh - Modernización inteligente de aplicaciones legacy en AWS. Transformá COBOL, mainframe y Java antiguo a arquitecturas modernas."
+>
+  <Navigation />
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">
+          {t('home.hero.title')}
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto">
+          {t('home.hero.subtitle')}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contacto" class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+            {t('home.cta.poc')}
+          </a>
+          <a href="/servicios" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+            {t('home.cta.contact')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problema Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">El Problema</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <div class="text-red-600 text-3xl mb-4">⚠️</div>
+          <h3 class="text-xl font-semibold mb-3">Aplicaciones Legacy Críticas</h3>
+          <p class="text-slate-700">
+            Millones de líneas de código COBOL, mainframe y monolitos antiguos difíciles de mantener y costosos de operar.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <div class="text-orange-600 text-3xl mb-4">💰</div>
+          <h3 class="text-xl font-semibold mb-3">Costos Crecientes</h3>
+          <p class="text-slate-700">
+            Infraestructura obsoleta y perfiles especializados cada vez más escasos y caros.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <div class="text-yellow-600 text-3xl mb-4">🔒</div>
+          <h3 class="text-xl font-semibold mb-3">Riesgo Operativo</h3>
+          <p class="text-slate-700">
+            Obsolescencia tecnológica que genera riesgos operativos y regulatorios críticos.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <div class="text-blue-600 text-3xl mb-4">☕</div>
+          <h3 class="text-xl font-semibold mb-3">Java Antiguo</h3>
+          <p class="text-slate-700">
+            Aplicaciones Java atrapadas en versiones viejas sin poder aprovechar las mejoras modernas del lenguaje.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solución Section -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">Nuestra Solución</h2>
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <p class="text-xl text-slate-700">
+          <strong>ModernAsh</strong> combina IA + experiencia real en migraciones para modernizar aplicaciones legacy
+          hacia <strong>Java, Python o Node.js sobre AWS</strong>, con un modelo de bajo riesgo y alta visibilidad.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+          <div class="text-4xl mb-4">🤖</div>
+          <h3 class="text-xl font-semibold mb-3">IA + Experiencia</h3>
+          <p class="text-slate-700">
+            Usamos IA para acelerar análisis y refactors, siempre con revisión de ingenieros senior.
+          </p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+          <div class="text-4xl mb-4">✅</div>
+          <h3 class="text-xl font-semibold mb-3">Tests & Documentación</h3>
+          <p class="text-slate-700">
+            Código moderno con tests automatizados y documentación completa desde el día 1.
+          </p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+          <div class="text-4xl mb-4">☁️</div>
+          <h3 class="text-xl font-semibold mb-3">Cloud-Native en AWS</h3>
+          <p class="text-slate-700">
+            Arquitecturas modernas optimizadas para AWS con patrones cloud-native.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PoC Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-slate-50 to-slate-100 rounded-lg p-12 border border-slate-300">
+        <h2 class="text-4xl font-bold text-center mb-6">Prueba de Concepto de Bajo Riesgo</h2>
+        <p class="text-xl text-center text-slate-700 mb-12 max-w-3xl mx-auto">
+          Validamos la modernización en un módulo real con riesgo controlado y visibilidad completa
+        </p>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">Alcance del servicio</h3>
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex items-start">
+                <span class="text-slate-700 mr-2">✓</span>
+                Análisis asistido por inteligencia artificial de su código legacy
+              </li>
+              <li class="flex items-start">
+                <span class="text-slate-700 mr-2">✓</span>
+                Migración a Java, Python o Node.js moderno
+              </li>
+              <li class="flex items-start">
+                <span class="text-slate-700 mr-2">✓</span>
+                Arquitectura cloud-native actualizada
+              </li>
+              <li class="flex items-start">
+                <span class="text-slate-700 mr-2">✓</span>
+                Despliegue en AWS con mejores prácticas
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">Entregables</h3>
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex items-start">
+                <span class="text-slate-700 mr-2">✓</span>
+                Código moderno, limpio y modular
+              </li>
+              <li class="flex items-start">
+                <span class="text-slate-700 mr-2">✓</span>
+                Pruebas unitarias e integración completas
+              </li>
+              <li class="flex items-start">
+                <span class="text-slate-700 mr-2">✓</span>
+                Documentación técnica (UML, diagramas, README)
+              </li>
+              <li class="flex items-start">
+                <span class="text-slate-700 mr-2">✓</span>
+                Hoja de ruta de modernización completa
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <a href="/contacto" class="inline-block bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 rounded font-semibold transition-colors">
+            Solicitar Prueba de Concepto
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-4">{t('team.title')}</h2>
+      <p class="text-xl text-center text-slate-600 mb-12">
+        {t('team.subtitle')}
+      </p>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-lg text-slate-700 mb-6">
+          Somos un equipo de profesionales con <strong>décadas de experiencia</strong> en desarrollo de software,
+          arquitectura de sistemas, cloud computing y modernización de aplicaciones enterprise.
+        </p>
+        <p class="text-lg text-slate-700">
+          Nuestra trayectoria incluye proyectos de migración complejos, transformaciones tecnológicas a gran escala
+          y la implementación de las mejores prácticas en equipos de desarrollo de todo tipo de industrias.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-6">¿Preparado para la Modernización?</h2>
+      <p class="text-xl mb-8 text-slate-300">
+        Programe una sesión de evaluación y comience su prueba de concepto con ModernAsh
+      </p>
+      <a href="/contacto" class="inline-block bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+        Contactar Ahora
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+

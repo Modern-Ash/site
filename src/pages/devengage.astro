@@ -1,0 +1,294 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MainLayout
+  title="DevEngage.AI"
+  description="DevEngage.AI - La IA como integrante real de tu equipo de desarrollo. Automatización de tests, documentación y tareas repetitivas."
+>
+  <Navigation />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-blue-900 via-indigo-800 to-blue-900 text-white py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          DevEngage<span class="text-blue-400">.AI</span>
+        </h1>
+        <p class="text-2xl mb-4 text-blue-100">
+          La IA como integrante real de tu equipo de desarrollo
+        </p>
+        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
+          Integra IA generativa en tu ciclo de desarrollo de forma segura, gobernada y medible
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problema -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">El Problema</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+          <h3 class="text-xl font-semibold mb-3 text-red-900">IA sin gobierno</h3>
+          <p class="text-slate-700">
+            GitHub Copilot y otras herramientas de IA aparecen espontáneamente en los equipos,
+            sin governance, sin buenas prácticas y sin métricas claras de impacto.
+          </p>
+        </div>
+        <div class="bg-orange-50 p-6 rounded-lg border border-orange-200">
+          <h3 class="text-xl font-semibold mb-3 text-orange-900">Testing postergado</h3>
+          <p class="text-slate-700">
+            Los tests y la documentación siguen siendo tareas repetitivas que se postergan
+            o se hacen a las corridas, generando deuda técnica.
+          </p>
+        </div>
+        <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+          <h3 class="text-xl font-semibold mb-3 text-yellow-900">Pilotos aislados</h3>
+          <p class="text-slate-700">
+            Las iniciativas de IA quedan en experimentos que no impactan el workflow real
+            ni la calidad del producto final.
+          </p>
+        </div>
+        <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+          <h3 class="text-xl font-semibold mb-3 text-blue-900">Presión constante</h3>
+          <p class="text-slate-700">
+            Los equipos están bajo presión: más features, más rápido, con más calidad y seguridad,
+            sin recursos adicionales.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué es DevEngage.AI -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-6">¿Qué es DevEngage.AI?</h2>
+        <p class="text-xl text-slate-700">
+          Un servicio de consultoría y acompañamiento que integra la <strong>IA generativa
+          en el ciclo completo de desarrollo</strong>, tratándola como un miembro más del equipo.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-8 space-y-6">
+        <div class="flex items-start">
+          <div class="bg-blue-100 text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+            ✓
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Define el modelo de integración de IA</h3>
+            <p class="text-slate-700">
+              Diseñamos cómo se integra la IA en tu SDLC: qué tareas delegar, qué tareas no,
+              y cómo se valida el output.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="bg-blue-100 text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+            ✓
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Implementa Spec Driven Development (SDD)</h3>
+            <p class="text-slate-700">
+              Las specs son el centro del flujo: la IA genera código, tests y documentación
+              alineados a las especificaciones.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="bg-blue-100 text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+            ✓
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Automatiza tareas repetitivas</h3>
+            <p class="text-slate-700">
+              Generación y mantenimiento de tests, documentación, comentarios, changelogs
+              y refactors sugeridos.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="bg-blue-100 text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+            ✓
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-2">Compatible con tu workflow actual</h3>
+            <p class="text-slate-700">
+              Funciona con Scrum, Kanban, Scrumban, SAFe y variantes. No te pedimos que
+              cambies de metodología.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">Beneficios</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="bg-green-100 text-green-600 rounded-full w-16 h-16 flex items-center justify-center text-3xl mx-auto mb-4">
+            ✅
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Más Calidad</h3>
+          <p class="text-slate-700">
+            Más tests, más documentación, menos deuda técnica gracias a la automatización.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="bg-blue-100 text-blue-600 rounded-full w-16 h-16 flex items-center justify-center text-3xl mx-auto mb-4">
+            🎨
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Más Creatividad</h3>
+          <p class="text-slate-700">
+            El equipo se libera de tareas mecánicas y se enfoca en decisiones de alto valor.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="bg-purple-100 text-purple-600 rounded-full w-16 h-16 flex items-center justify-center text-3xl mx-auto mb-4">
+            🚀
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Más Throughput</h3>
+          <p class="text-slate-700">
+            Aumentás la producción sin quemar al equipo, cambiando cómo se produce el software.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="bg-orange-100 text-orange-600 rounded-full w-16 h-16 flex items-center justify-center text-3xl mx-auto mb-4">
+            🔒
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Más Seguridad</h3>
+          <p class="text-slate-700">
+            La IA ayuda a reforzar buenas prácticas y detectar patrones inseguros.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center text-3xl mx-auto mb-4">
+            📊
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Métricas Claras</h3>
+          <p class="text-slate-700">
+            Medimos el impacto: tiempos de ciclo, cobertura de tests, documentación actualizada.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="bg-pink-100 text-pink-600 rounded-full w-16 h-16 flex items-center justify-center text-3xl mx-auto mb-4">
+            🎯
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Sin Cambiar Workflow</h3>
+          <p class="text-slate-700">
+            Se adapta a tu forma de trabajar: Scrum, Kanban o cualquier variante.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo trabajamos -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">Cómo Trabajamos</h2>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex items-center mb-3">
+            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+              1
+            </div>
+            <h3 class="text-xl font-semibold">Assessment (1-2 semanas)</h3>
+          </div>
+          <p class="text-slate-700 ml-11">
+            Relevamos tu stack, proceso actual y uso de IA. Detectamos oportunidades de valor.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex items-center mb-3">
+            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+              2
+            </div>
+            <h3 class="text-xl font-semibold">Diseño del modelo (1-2 semanas)</h3>
+          </div>
+          <p class="text-slate-700 ml-11">
+            Definimos el rol de la IA y diseñamos flujos compatibles con tus ceremonias.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex items-center mb-3">
+            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+              3
+            </div>
+            <h3 class="text-xl font-semibold">Implementación (2-3 semanas)</h3>
+          </div>
+          <p class="text-slate-700 ml-11">
+            Configuramos herramientas, implementamos SDD y creamos ejemplos reales en tu repo.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex items-center mb-3">
+            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">
+              4
+            </div>
+            <h3 class="text-xl font-semibold">Capacitación y coaching (1-2 semanas)</h3>
+          </div>
+          <p class="text-slate-700 ml-11">
+            Workshops, acompañamiento en PRs reales y definición de métricas de seguimiento.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tecnologías -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-6">Agnóstico al Stack y Workflow</h2>
+      <p class="text-xl text-slate-700 mb-12">
+        DevEngage.AI se adapta a tu realidad tecnológica y metodológica
+      </p>
+      <div class="grid md:grid-cols-2 gap-8 text-left">
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h3 class="text-xl font-semibold mb-4">Lenguajes</h3>
+          <p class="text-slate-700">
+            Java, Python, Node.js, .NET, Go, front-end, data/ML y más
+          </p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+          <h3 class="text-xl font-semibold mb-4">Workflows</h3>
+          <p class="text-slate-700">
+            Scrum, Kanban, Scrumban, SAFe, modelos híbridos y propios
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-br from-blue-900 to-indigo-900 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-6">
+        ¿Querés que la IA sea un integrante real de tu equipo?
+      </h2>
+      <p class="text-xl mb-8 text-blue-100">
+        Hablemos de cómo DevEngage.AI puede transformar tu forma de desarrollar software
+      </p>
+      <a href="/contacto" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+        Agendar Llamada
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+

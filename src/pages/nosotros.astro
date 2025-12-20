@@ -1,0 +1,202 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('es');
+---
+
+<MainLayout
+  title="Nosotros"
+  description="Conocé al equipo de ModernAsh: expertos en modernización de aplicaciones legacy con décadas de experiencia."
+>
+  <Navigation />
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl font-bold mb-6">{t('team.title')}</h1>
+      <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+        {t('team.subtitle')}
+      </p>
+    </div>
+  </section>
+
+  <!-- Sobre ModernAsh -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-6">¿Quiénes somos?</h2>
+        <p class="text-xl text-slate-700">
+          ModernAsh es una consultora especializada en modernización de aplicaciones legacy,
+          combinando <strong>décadas de experiencia real</strong> con las últimas tecnologías de IA
+          para transformar sistemas críticos de negocio.
+        </p>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-slate-700 space-y-6">
+        <p>
+          Nuestro equipo está conformado por profesionales que han trabajado en proyectos de modernización
+          complejos en diferentes industrias: banca, seguros, telecomunicaciones, gobierno y más.
+        </p>
+
+        <p>
+          No somos una empresa de herramientas o una consultora generalista. Somos <strong>especialistas
+          en modernización de aplicaciones legacy</strong> que entienden profundamente los desafíos técnicos,
+          organizacionales y de negocio que implica migrar sistemas críticos.
+        </p>
+
+        <p>
+          Combinamos esa experiencia con un enfoque pragmático: usamos IA donde aporta valor real
+          (análisis, generación de tests, documentación), pero siempre con <strong>ingenieros senior
+          validando cada decisión arquitectónica y cada línea de código</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiencia -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">Nuestra Experiencia</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+          <div class="text-5xl font-bold text-orange-600 mb-4">20+</div>
+          <h3 class="text-xl font-semibold mb-2">Años de Experiencia</h3>
+          <p class="text-slate-700">
+            En desarrollo, arquitectura y transformación tecnológica
+          </p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+          <div class="text-5xl font-bold text-orange-600 mb-4">10+</div>
+          <h3 class="text-xl font-semibold mb-2">Lenguajes y Plataformas</h3>
+          <p class="text-slate-700">
+            COBOL, Java, Python, Node.js, mainframe, cloud y más
+          </p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+          <div class="text-5xl font-bold text-orange-600 mb-4">5+</div>
+          <h3 class="text-xl font-semibold mb-2">Industrias</h3>
+          <p class="text-slate-700">
+            Banca, seguros, telcos, gobierno, retail y más
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">Nuestros Valores</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-slate-50 p-8 rounded-lg border border-slate-200">
+          <h3 class="text-2xl font-semibold mb-4">🎯 Pragmatismo</h3>
+          <p class="text-slate-700">
+            No vendemos soluciones mágicas. Usamos IA y tecnología moderna donde realmente aportan valor,
+            siempre con foco en resultados medibles.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-8 rounded-lg border border-slate-200">
+          <h3 class="text-2xl font-semibold mb-4">✅ Calidad</h3>
+          <p class="text-slate-700">
+            Entregamos código con tests, documentación y buenas prácticas desde el día 1.
+            No hacemos demos que luego hay que rehacer.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-8 rounded-lg border border-slate-200">
+          <h3 class="text-2xl font-semibold mb-4">🤝 Transparencia</h3>
+          <p class="text-slate-700">
+            Roadmaps claros, riesgos identificados, métricas definidas.
+            Trabajamos con confianza mutua y visibilidad total.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-8 rounded-lg border border-slate-200">
+          <h3 class="text-2xl font-semibold mb-4">🚀 Innovación Responsable</h3>
+          <p class="text-slate-700">
+            Adoptamos tecnologías nuevas (como IA) pero siempre con control, governance
+            y validación humana en decisiones críticas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodología -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-12">Cómo Trabajamos</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex items-start">
+            <div class="bg-orange-100 text-orange-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+              1
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Descubrimiento</h3>
+              <p class="text-slate-700">
+                Entendemos tu contexto, tus sistemas legacy y tus objetivos de negocio.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex items-start">
+            <div class="bg-orange-100 text-orange-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+              2
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">PoC de Bajo Riesgo</h3>
+              <p class="text-slate-700">
+                Probamos la modernización en un módulo acotado con precio controlado.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex items-start">
+            <div class="bg-orange-100 text-orange-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+              3
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Modernización Faseada</h3>
+              <p class="text-slate-700">
+                Escalamos a módulos más complejos con roadmap claro y métricas de progreso.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg border border-slate-200">
+          <div class="flex items-start">
+            <div class="bg-orange-100 text-orange-600 rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+              4
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Transferencia y Soporte</h3>
+              <p class="text-slate-700">
+                Tu equipo recibe documentación completa y soporte para mantener el sistema modernizado.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-6">¿Querés conocer más?</h2>
+      <p class="text-xl text-slate-700 mb-8">
+        Agenda una llamada y conversemos sobre tu proyecto de modernización
+      </p>
+      <a href="/contacto" class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+        Agendar Llamada
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+

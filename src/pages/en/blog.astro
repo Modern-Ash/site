@@ -1,0 +1,50 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<MainLayout
+  title="Resources"
+  description="Articles and resources about legacy application modernization, artificial intelligence in development and AWS best practices."
+>
+  <Navigation />
+
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold mb-4">ModernAsh Resources</h1>
+        <p class="text-xl text-slate-600">
+          Insights on enterprise legacy application modernization
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto text-center py-12">
+        <p class="text-slate-600 text-lg mb-6">
+          We will soon publish technical articles, case studies and best practices on:
+        </p>
+        <ul class="space-y-3 text-left max-w-2xl mx-auto text-slate-700">
+          <li class="flex items-start">
+            <span class="text-slate-700 mr-2">•</span>
+            Legacy application modernization strategies
+          </li>
+          <li class="flex items-start">
+            <span class="text-slate-700 mr-2">•</span>
+            Artificial intelligence integration in the development lifecycle
+          </li>
+          <li class="flex items-start">
+            <span class="text-slate-700 mr-2">•</span>
+            Cloud-native architectures on AWS
+          </li>
+          <li class="flex items-start">
+            <span class="text-slate-700 mr-2">•</span>
+            Success stories in enterprise technology transformation
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</MainLayout>
+

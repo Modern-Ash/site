@@ -1,0 +1,57 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-slate-900 text-slate-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="col-span-1">
+        <h3 class="text-xl font-bold text-white mb-4">
+          Modern<span class="text-slate-400">Ash</span>
+        </h3>
+        <p class="text-sm">
+          {lang === 'es'
+            ? 'Modernización empresarial de aplicaciones legacy en AWS'
+            : 'Enterprise legacy application modernization on AWS'
+          }
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-3">{t('nav.services')}</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href={lang === 'es' ? '/servicios' : '/en/services'} class="hover:text-white transition-colors">Legacy Modernization</a></li>
+          <li><a href={lang === 'es' ? '/devengage' : '/en/devengage'} class="hover:text-white transition-colors">DevEngage.AI</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-3">{lang === 'es' ? 'Compañía' : 'Company'}</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href={lang === 'es' ? '/nosotros' : '/en/about'} class="hover:text-white transition-colors">{t('nav.about')}</a></li>
+          <li><a href={lang === 'es' ? '/blog' : '/en/blog'} class="hover:text-white transition-colors">{t('nav.blog')}</a></li>
+          <li><a href={lang === 'es' ? '/contacto' : '/en/contact'} class="hover:text-white transition-colors">{t('nav.contact')}</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-3">AWS Marketplace</h4>
+        <p class="text-sm">
+          {lang === 'es'
+            ? 'Servicios profesionales disponibles en AWS Marketplace'
+            : 'Professional services available on AWS Marketplace'
+          }
+        </p>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-800 mt-8 pt-8 text-sm text-center">
+      <p>© {currentYear} ModernAsh. {t('footer.rights')}.</p>
+    </div>
+  </div>
+</footer>
+
