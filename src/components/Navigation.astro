@@ -5,56 +5,56 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<nav class="bg-white shadow-md border-b border-slate-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-20">
-      <div class="flex items-center">
-        <a href={lang === 'es' ? '/' : '/en'} class="flex items-center space-x-3">
-          <img src="/logo.svg" alt="ModernAsh" class="h-10 w-10" />
-          <span class="text-2xl font-bold text-slate-900">
-            Modern<span class="text-slate-600">Ash</span>
-          </span>
-        </a>
-      </div>
+<nav class="sticky top-0 z-30 border-b border-slate-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between gap-6 py-4">
+      <a href={lang === 'es' ? '/' : '/en'} class="flex items-center gap-3">
+        <img src="/logo.svg" alt="ModernAsh" class="h-10 w-10" />
+        <span class="text-2xl font-bold text-slate-900 tracking-tight">
+          Modern<span class="text-slate-600">Ash</span>
+        </span>
+      </a>
 
-      <div class="hidden md:flex space-x-8">
-        <a href={lang === 'es' ? '/' : '/en'} class="text-slate-700 hover:text-slate-900 transition-colors font-medium">
+      <div class="hidden md:flex items-center gap-3 text-sm font-medium text-slate-600">
+        <a href={lang === 'es' ? '/' : '/en'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
           {t('nav.home')}
         </a>
-        <a href={lang === 'es' ? '/servicios' : '/en/services'} class="text-slate-700 hover:text-slate-900 transition-colors font-medium">
+        <a href={lang === 'es' ? '/servicios' : '/en/services'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
           {t('nav.services')}
         </a>
-        <a href={lang === 'es' ? '/devengage' : '/en/devengage'} class="text-slate-700 hover:text-slate-900 transition-colors font-medium">
+        <a href={lang === 'es' ? '/devengage' : '/en/devengage'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
           {t('nav.devengage')}
         </a>
-        <a href={lang === 'es' ? '/nosotros' : '/en/about'} class="text-slate-700 hover:text-slate-900 transition-colors font-medium">
+        <a href={lang === 'es' ? '/nosotros' : '/en/about'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
           {t('nav.about')}
         </a>
-        <a href={lang === 'es' ? '/blog' : '/en/blog'} class="text-slate-700 hover:text-slate-900 transition-colors font-medium">
+        <a href={lang === 'es' ? '/blog' : '/en/blog'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
           {t('nav.blog')}
         </a>
-        <a href={lang === 'es' ? '/contacto' : '/en/contact'} class="bg-slate-800 hover:bg-slate-900 text-white px-6 py-2 rounded transition-colors font-medium">
-          {t('nav.contact')}
+        <a
+          href={lang === 'es' ? '/contacto' : '/en/contact'}
+          class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-slate-800 to-slate-900 px-5 py-2 text-white shadow-sm shadow-slate-400/30 transition-all hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <span class="text-sm font-semibold">{t('nav.contact')}</span>
         </a>
       </div>
 
-      <div class="flex items-center space-x-4">
-        <a href={lang === 'es' ? '/en' : '/'}
-           class="flex items-center space-x-2 px-3 py-2 rounded hover:bg-slate-100 transition-colors group">
-          {lang === 'es' ? (
-            <>
-              <span class="text-xl">🇺🇸</span>
-              <span class="text-sm text-slate-600 group-hover:text-slate-900 font-medium">EN</span>
-            </>
-          ) : (
-            <>
-              <span class="text-xl">🇪🇸</span>
-              <span class="text-sm text-slate-600 group-hover:text-slate-900 font-medium">ES</span>
-            </>
-          )}
-        </a>
-      </div>
+      <a
+        href={lang === 'es' ? '/en' : '/'}
+        class="hidden md:inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white transition-all"
+      >
+        {lang === 'es' ? (
+          <>
+            <span class="text-lg leading-none">🇺🇸</span>
+            <span class="text-sm">EN</span>
+          </>
+        ) : (
+          <>
+            <span class="text-lg leading-none">🇪🇸</span>
+            <span class="text-sm">ES</span>
+          </>
+        )}
+      </a>
     </div>
   </div>
 </nav>
-
