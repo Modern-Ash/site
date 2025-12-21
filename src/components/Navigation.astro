@@ -41,7 +41,8 @@ const t = useTranslations(lang);
 
       <a
         href={lang === 'es' ? '/en' : '/'}
-        class="hidden md:inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white transition-all"
+        class="hidden md:inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white transition-all language-switcher"
+        data-target-lang={lang === 'es' ? 'en' : 'es'}
       >
         {lang === 'es' ? (
           <>
@@ -58,3 +59,19 @@ const t = useTranslations(lang);
     </div>
   </div>
 </nav>
+
+<script>
+  // Guardar preferencia de idioma cuando el usuario cambia manualmente
+  document.addEventListener('DOMContentLoaded', () => {
+    const languageSwitcher = document.querySelector('.language-switcher');
+    if (languageSwitcher) {
+      languageSwitcher.addEventListener('click', () => {
+        const targetLang = languageSwitcher.getAttribute('data-target-lang');
+        if (targetLang) {
+          localStorage.setItem('preferredLanguage', targetLang);
+        }
+      });
+    }
+  });
+</script>
+

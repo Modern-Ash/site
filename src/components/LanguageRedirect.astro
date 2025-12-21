@@ -1,0 +1,49 @@
+---
+// Script de redirección automática basada en idioma del navegador
+import { detectUserLanguage, getRedirectPath } from '../utils/languageDetector';
+
+// Solo ejecutar en el cliente
+if (typeof window !== 'undefined') {
+  const currentPath = window.location.pathname;
+  const detectedLang = detectUserLanguage();
+  const targetPath = getRedirectPath(currentPath, detectedLang);
+
+  // Solo redirigir si es la primera visita (no hay preferencia guardada)
+  const hasVisited = sessionStorage.getItem('hasVisited');
+
+  if (!hasVisited && targetPath !== currentPath) {
+    sessionStorage.setItem('hasVisited', 'true');
+    window.location.href = targetPath;
+  }
+}
+---
+
+<script>
+  import { detectUserLanguage, getRedirectPath, saveLanguagePreference } from '../utils/languageDetector';
+
+  // Detectar y redirigir automáticamente en la primera visita
+  const currentPath = window.location.pathname;
+  const detectedLang = detectUserLanguage();
+  const targetPath = getRedirectPath(currentPath, detectedLang);
+
+  // Solo redirigir si es la primera visita de la sesión
+  const hasVisited = sessionStorage.getItem('hasVisited');
+
+  if (!hasVisited && targetPath !== currentPath) {
+    sessionStorage.setItem('hasVisited', 'true');
+    window.location.href = targetPath;
+  }
+
+  // Guardar preferencia cuando el usuario cambia manualmente de idioma
+  const languageSwitcher = document.querySelector('a[href*="/en"], a[href*="/es"]');
+  if (languageSwitcher) {
+    languageSwitcher.addEventListener('click', (e) => {
+      const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+      if (href) {
+        const newLang = href.includes('/en') ? 'en' : 'es';
+        saveLanguagePreference(newLang);
+      }
+    });
+  }
+</script>
+
