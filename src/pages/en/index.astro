@@ -22,10 +22,10 @@ const t = useTranslations('en');
     </Fragment>
     <Fragment slot="cta">
       <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-        <a href="/en/contact" class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+        <a href="/en/contact" class="bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           {t('home.cta.poc')}
         </a>
-        <a href="/en/services" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-8 py-3 rounded font-semibold transition-colors">
+        <a href="/en/services" class="bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700 border border-slate-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           {t('home.cta.contact')}
         </a>
       </div>
@@ -37,7 +37,7 @@ const t = useTranslations('en');
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">The Problem</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+        <div class="bg-white/90 backdrop-blur-sm p-6 rounded-xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <div class="text-slate-600 text-3xl mb-4">⚠️</div>
           <h3 class="text-xl font-semibold mb-3 text-slate-900">Critical Legacy Applications</h3>
           <p class="text-slate-700">
@@ -51,14 +51,14 @@ const t = useTranslations('en');
             Obsolete infrastructure and specialized profiles increasingly scarce and expensive.
           </p>
         </div>
-        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+        <div class="bg-white/90 backdrop-blur-sm p-6 rounded-xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <div class="text-slate-600 text-3xl mb-4">🔒</div>
           <h3 class="text-xl font-semibold mb-3 text-slate-900">Operational Risk</h3>
           <p class="text-slate-700">
             Technological obsolescence generating critical operational and regulatory risks.
           </p>
         </div>
-        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+        <div class="bg-white/90 backdrop-blur-sm p-6 rounded-xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <div class="text-slate-600 text-3xl mb-4">☕</div>
           <h3 class="text-xl font-semibold mb-3 text-slate-900">Legacy Java</h3>
           <p class="text-slate-700">
@@ -80,21 +80,21 @@ const t = useTranslations('en');
         </p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+        <div class="bg-slate-50/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-200 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
           <div class="text-4xl mb-4">🤖</div>
           <h3 class="text-xl font-semibold mb-3 text-slate-900">AI + Experience</h3>
           <p class="text-slate-700">
             We use AI to accelerate analysis and refactors, always with senior engineer review.
           </p>
         </div>
-        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+        <div class="bg-slate-50/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-200 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
           <div class="text-4xl mb-4">✅</div>
           <h3 class="text-xl font-semibold mb-3 text-slate-900">Tests & Documentation</h3>
           <p class="text-slate-700">
             Modern code with automated tests and complete documentation from day 1.
           </p>
         </div>
-        <div class="bg-slate-50 p-8 rounded-lg shadow-sm border border-slate-200 text-center">
+        <div class="bg-slate-50/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-200 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
           <div class="text-4xl mb-4">☁️</div>
           <h3 class="text-xl font-semibold mb-3 text-slate-900">Cloud-Native on AWS</h3>
           <p class="text-slate-700">
@@ -108,7 +108,7 @@ const t = useTranslations('en');
   <!-- PoC Section -->
   <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white rounded-lg p-12 border border-slate-200 shadow-sm">
+      <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-12 border border-slate-200 shadow-2xl">
         <h2 class="text-4xl font-bold text-center mb-6 text-slate-900">Low-Cost Proof of Concept</h2>
         <p class="text-xl text-center text-slate-700 mb-12 max-w-3xl mx-auto">
           Test modernization on a real module with minimum risk and maximum visibility
@@ -158,7 +158,7 @@ const t = useTranslations('en');
           </div>
         </div>
         <div class="text-center mt-8">
-          <a href="/en/contact" class="inline-block bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 rounded font-semibold transition-colors">
+          <a href="/en/contact" class="inline-block bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             Request Proof of Concept
           </a>
         </div>
