@@ -1,53 +1,62 @@
 ---
 interface Props {
   lang?: 'es' | 'en';
-  mapping?: 'pathname' | 'url' | 'title';
-  inputPosition?: 'top' | 'bottom';
 }
 
-const { lang = 'es', mapping = 'pathname', inputPosition = 'top' } = Astro.props;
-const repo = import.meta.env.PUBLIC_GISCUS_REPO;
-const repoId = import.meta.env.PUBLIC_GISCUS_REPO_ID;
-const category = import.meta.env.PUBLIC_GISCUS_CATEGORY || 'General';
-const categoryId = import.meta.env.PUBLIC_GISCUS_CATEGORY_ID;
-const hasConfig = Boolean(repo && repoId && categoryId);
+const { lang = 'es' } = Astro.props;
+
+// Variables de entorno para giscus
+const GISCUS_REPO = import.meta.env.PUBLIC_GISCUS_REPO || 'faguero/modernash-comments';
+const GISCUS_REPO_ID = import.meta.env.PUBLIC_GISCUS_REPO_ID || '';
+const GISCUS_CATEGORY = import.meta.env.PUBLIC_GISCUS_CATEGORY || 'General';
+const GISCUS_CATEGORY_ID = import.meta.env.PUBLIC_GISCUS_CATEGORY_ID || '';
 ---
 
-<section class="mt-16 border-t border-slate-200 pt-10">
-  <h2 class="text-2xl font-bold text-slate-900 mb-4">
-    {lang === 'es' ? 'Comentarios' : 'Comments'}
-  </h2>
-  {hasConfig ? (
-    <div class="comments">
-      <script
-        src="https://giscus.app/client.js"
-        data-repo={repo}
-        data-repo-id={repoId}
-        data-category={category}
-        data-category-id={categoryId}
-        data-mapping={mapping}
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position={inputPosition}
-        data-theme="preferred_color_scheme"
-        data-lang={lang}
-        crossorigin="anonymous"
-        async>
-      </script>
-    </div>
-  ) : (
-    <div class="rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-800">
-      <p class="font-semibold">
-        {lang === 'es'
-          ? 'Configura las variables PUBLIC_GISCUS_REPO, PUBLIC_GISCUS_REPO_ID y PUBLIC_GISCUS_CATEGORY_ID para habilitar giscus.'
-          : 'Set PUBLIC_GISCUS_REPO, PUBLIC_GISCUS_REPO_ID, and PUBLIC_GISCUS_CATEGORY_ID to enable giscus.'}
-      </p>
-      <p class="mt-2 text-sm text-amber-700">
-        {lang === 'es'
-          ? 'Recomendado: repositorio modern-ash-comments con Discussions activado.'
-          : 'Recommendation: modern-ash-comments repository with Discussions enabled.'}
-      </p>
-    </div>
-  )}
-</section>
+<div class="mt-16 border-t border-slate-200 pt-8">
+  <h2 class="text-2xl font-bold text-slate-900 mb-6">Comentarios</h2>
+
+  <div
+    class="giscus"
+    data-repo={GISCUS_REPO}
+    data-repo-id={GISCUS_REPO_ID}
+    data-category={GISCUS_CATEGORY}
+    data-category-id={GISCUS_CATEGORY_ID}
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang={lang}
+    data-loading="lazy"
+    crossorigin="anonymous"
+  >
+  </div>
+</div>
+
+<script>
+  // Cargar el script de giscus
+  const script = document.createElement('script');
+  script.src = 'https://giscus.app/client.js';
+  script.async = true;
+  script.crossOrigin = 'anonymous';
+
+  // Copiar todos los atributos data-* del div.giscus al script
+  const giscusDiv = document.querySelector('.giscus');
+  if (giscusDiv) {
+    Array.from(giscusDiv.attributes).forEach(attr => {
+      if (attr.name.startsWith('data-')) {
+        script.setAttribute(attr.name, attr.value);
+      }
+    });
+
+    giscusDiv.appendChild(script);
+  }
+</script>
+
+<style>
+  .giscus {
+    min-height: 200px;
+  }
+</style>
+
