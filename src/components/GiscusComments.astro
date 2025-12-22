@@ -17,11 +17,18 @@ const readEnv = (...keys: string[]) => {
 const giscusConfig = {
   repo: readEnv('PUBLIC_GISCUS_REPO', 'GISCUS_REPO'),
   repoId: readEnv('PUBLIC_GISCUS_REPO_ID', 'GISCUS_REPO_ID'),
-  category: readEnv('PUBLIC_GISCUS_CATEGORY', 'GISCUS_CATEGORY'),
+  category: readEnv('PUBLIC_GISCUS_CATEGORY', 'GISCUS_CATEGORY') || 'General',
   categoryId: readEnv('PUBLIC_GISCUS_CATEGORY_ID', 'GISCUS_CATEGORY_ID'),
 };
 
-const hasGiscusConfig = Object.values(giscusConfig).every(Boolean);
+const requiredKeys = ['repo', 'repoId', 'categoryId'] as const;
+const missingKeys = requiredKeys.filter((key) => !giscusConfig[key]);
+const missingEnvVars = missingKeys.map((key) => ({
+  repo: 'PUBLIC_GISCUS_REPO',
+  repoId: 'PUBLIC_GISCUS_REPO_ID',
+  categoryId: 'PUBLIC_GISCUS_CATEGORY_ID',
+}[key]));
+const hasGiscusConfig = missingKeys.length === 0;
 
 const copy = {
   es: {
@@ -64,6 +71,14 @@ const copy = {
     <div class="rounded-lg border border-dashed border-slate-300 bg-slate-50 px-4 py-6 text-slate-700">
       <p class="font-semibold mb-2">{copy.missingTitle}</p>
       <p class="text-sm leading-relaxed">{copy.missingBody}</p>
+      {missingEnvVars.length > 0 && (
+        <p class="text-xs text-slate-500 mt-3">
+          {lang === 'es'
+            ? `Variables faltantes: ${missingEnvVars.join(', ')}`
+            : `Missing variables: ${missingEnvVars.join(', ')}`
+          }
+        </p>
+      )}
     </div>
   )}
 </div>
