@@ -39,10 +39,7 @@ const giscusConfig = {
 
 const requiredKeys = ['repo', 'repoId', 'categoryId'] as const;
 const missingKeys = requiredKeys.filter((key) => !giscusConfig[key]);
-const missingEnvVars = missingKeys.map((key) => ({
-  name: key,
-  options: envVarOptions[key],
-}));
+const missingEnvVars = missingKeys.map((key) => envVarOptions[key].join(' / '));
 const hasGiscusConfig = missingKeys.length === 0;
 
 const copy = {
@@ -87,21 +84,12 @@ const copy = {
       <p class="font-semibold mb-2">{copy.missingTitle}</p>
       <p class="text-sm leading-relaxed">{copy.missingBody}</p>
       {missingEnvVars.length > 0 && (
-        <div class="text-xs text-slate-500 mt-3 space-y-1">
-          <p class="font-semibold">
-            {lang === 'es' ? 'Variables faltantes:' : 'Missing variables:'}
-          </p>
-          <ul class="list-disc list-inside space-y-1">
-            {missingEnvVars.map(({ name, options }) => (
-              <li>
-                <span class="font-semibold">{name}:</span>{' '}
-                {lang === 'es'
-                  ? `Define una de estas variables: ${options.join(', ')}`
-                  : `Set one of these variables: ${options.join(', ')}`}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <p class="text-xs text-slate-500 mt-3">
+          {lang === 'es'
+            ? `Variables faltantes: ${missingEnvVars.join(', ')}`
+            : `Missing variables: ${missingEnvVars.join(', ')}`
+          }
+        </p>
       )}
     </div>
   )}
