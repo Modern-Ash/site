@@ -7,7 +7,7 @@ const { lang = 'es' } = Astro.props;
 
 const readEnv = (keys: string[]) => {
   for (const key of keys) {
-    const value = import.meta.env[key];
+    const value = import.meta.env[key] ?? process.env[key];
     if (typeof value === 'string' && value.trim()) return value.trim();
   }
 
