@@ -5,7 +5,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 
-const readEnv = (...keys: string[]) => {
+const readEnv = (keys: string[]) => {
   for (const key of keys) {
     const value = import.meta.env[key];
     if (typeof value === 'string' && value.trim()) return value.trim();
@@ -14,20 +14,32 @@ const readEnv = (...keys: string[]) => {
   return '';
 };
 
+const envVarOptions = {
+  repo: ['PUBLIC_GISCUS_REPO', 'PUBLIC_GISCUS_REPOSITORY', 'GISCUS_REPO', 'GISCUS_REPOSITORY'],
+  repoId: [
+    'PUBLIC_GISCUS_REPO_ID',
+    'PUBLIC_GISCUS_REPOSITORY_ID',
+    'GISCUS_REPO_ID',
+    'GISCUS_REPOSITORY_ID',
+  ],
+  category: ['PUBLIC_GISCUS_CATEGORY', 'PUBLIC_GISCUS_DISCUSSION_CATEGORY', 'GISCUS_CATEGORY'],
+  categoryId: [
+    'PUBLIC_GISCUS_CATEGORY_ID',
+    'PUBLIC_GISCUS_DISCUSSION_CATEGORY_ID',
+    'GISCUS_CATEGORY_ID',
+  ],
+} as const;
+
 const giscusConfig = {
-  repo: readEnv('PUBLIC_GISCUS_REPO', 'GISCUS_REPO'),
-  repoId: readEnv('PUBLIC_GISCUS_REPO_ID', 'GISCUS_REPO_ID'),
-  category: readEnv('PUBLIC_GISCUS_CATEGORY', 'GISCUS_CATEGORY') || 'General',
-  categoryId: readEnv('PUBLIC_GISCUS_CATEGORY_ID', 'GISCUS_CATEGORY_ID'),
+  repo: readEnv(envVarOptions.repo),
+  repoId: readEnv(envVarOptions.repoId),
+  category: readEnv(envVarOptions.category) || 'General',
+  categoryId: readEnv(envVarOptions.categoryId),
 };
 
 const requiredKeys = ['repo', 'repoId', 'categoryId'] as const;
 const missingKeys = requiredKeys.filter((key) => !giscusConfig[key]);
-const missingEnvVars = missingKeys.map((key) => ({
-  repo: 'PUBLIC_GISCUS_REPO',
-  repoId: 'PUBLIC_GISCUS_REPO_ID',
-  categoryId: 'PUBLIC_GISCUS_CATEGORY_ID',
-}[key]));
+const missingEnvVars = missingKeys.map((key) => envVarOptions[key].join(' / '));
 const hasGiscusConfig = missingKeys.length === 0;
 
 const copy = {
