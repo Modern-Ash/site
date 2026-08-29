@@ -1,0 +1,103 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from './Navigation.astro';
+import Footer from './Footer.astro';
+
+interface Props { lang: 'es' | 'en'; }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const p = (spanish: string, english: string) => es ? spanish : english;
+const contact = es ? '/contacto' : '/en/contact';
+const devengage = es ? '/devengage' : '/en/devengage';
+---
+
+<MainLayout
+  title="Agora"
+  description={p(
+    'Agora es un framework local, Markdown-first y Git-native para gobernar delivery de software entre humanos, agentes de IA, servicios y swarms.',
+    'Agora is a local, Markdown-first and Git-native framework for governing software delivery across humans, AI agents, services and swarms.'
+  )}
+  image="/agora-logo.png"
+>
+  <Navigation />
+  <main id="main-content">
+    <section class="relative overflow-hidden bg-[#f8f6f1]">
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,#0f172a0c_1px,transparent_1px),linear-gradient(#0f172a0c_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      <div class="relative mx-auto grid min-h-[720px] max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8">
+        <div>
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-full bg-slate-950 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-white">Open source</span>
+            <span class="rounded-full border border-amber-500 bg-amber-100 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-amber-950">Alpha 0.x</span>
+          </div>
+          <h1 class="mt-8 text-5xl font-black leading-[0.98] tracking-[-0.05em] text-slate-950 sm:text-6xl lg:text-7xl">
+            {p('La especificación define el trabajo.', 'A specification defines the work.')} <span class="text-teal-700">{p('Agora gobierna su ejecución.', 'Agora governs its execution.')}</span>
+          </h1>
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
+            {p('Roles, permisos, estados, gates, evidencia, handoffs y aprobaciones que sobreviven a la sesión y permanecen inspeccionables en Markdown y Git.', 'Roles, permissions, states, gates, evidence, handoffs and approvals that survive the session and remain inspectable in Markdown and Git.')}
+          </p>
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+            <a href="https://github.com/Modern-Ash/agora" class="inline-flex min-h-12 items-center justify-center rounded-full bg-slate-950 px-7 font-black text-white transition hover:-translate-y-0.5">GitHub ↗</a>
+            <a href={contact} class="inline-flex min-h-12 items-center justify-center rounded-full border border-slate-400 px-7 font-bold text-slate-950 transition hover:bg-white">{p('Solicitar piloto', 'Request a pilot')}</a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -inset-4 -rotate-2 rounded-[2rem] bg-teal-600"></div>
+          <div class="relative rounded-[2rem] border-2 border-slate-950 bg-white p-8 shadow-[12px_12px_0_#fbbf24]">
+            <img src="/agora-logo.png" alt="Agora" class="w-full" />
+            <div class="mt-6 grid grid-cols-2 gap-3 border-t border-slate-200 pt-6 text-sm font-bold text-slate-700">
+              <span>Markdown-first</span><span>Git-native</span><span>Provider-neutral</span><span>Process-neutral</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-950 py-24 text-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl">
+          <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-amber-300">{p('El problema que queda después del prompt', 'The problem left after the prompt')}</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">{p('Un resultado no es trazabilidad.', 'A result is not traceability.')}</h2>
+          <p class="mt-6 text-xl leading-9 text-slate-300">{p('Un pull request puede tener código, tests y una explicación convincente. Eso todavía no demuestra quién ejecutó, qué decisiones delegó, qué evidencia revisó una persona ni quién tenía autoridad para aceptar.', 'A pull request may contain code, tests and a convincing explanation. It still does not prove who executed, what decisions were delegated, what evidence a person reviewed, or who had authority to accept.')}</p>
+        </div>
+        <div class="mt-14 grid gap-px overflow-hidden rounded-3xl border border-slate-700 bg-slate-700 md:grid-cols-4">
+          {[['01','ACTOR',p('Quién o qué ejecutó', 'Who or what executed')],['02','AUTHORITY',p('Qué podía decidir', 'What it could decide')],['03','EVIDENCE',p('Qué produjo y se verificó', 'What was produced and verified')],['04','APPROVAL',p('Quién aceptó el resultado', 'Who accepted the result')]].map(([number,label,text]) => (
+            <article class="bg-slate-950 p-7"><span class="font-mono text-xs text-teal-300">{number} / {label}</span><h3 class="mt-6 text-xl font-bold">{text}</h3></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-[.72fr_1.28fr]">
+          <div><p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-teal-700">{p('Cómo funciona', 'How it works')}</p><h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">{p('El proceso se vuelve configuración verificable.', 'Process becomes verifiable configuration.')}</h2><p class="mt-6 text-lg leading-8 text-slate-600">{p('Agora no reemplaza Jira, GitHub, CI/CD ni el runtime del agente. Define y registra el contrato que conecta esos sistemas.', 'Agora does not replace Jira, GitHub, CI/CD or the agent runtime. It defines and records the contract connecting those systems.')}</p></div>
+          <ol class="space-y-4">
+            <li class="grid gap-4 rounded-2xl border border-slate-200 p-6 sm:grid-cols-[4rem_1fr]"><span class="font-mono text-2xl font-black text-amber-500">01</span><div><h3 class="text-xl font-black">{p('Elegir el método', 'Choose the method')}</h3><p class="mt-2 text-slate-600">{p('Spec-driven, Scrum, Kanban o un Method Pack propio.', 'Spec-driven, Scrum, Kanban or a custom Method Pack.')}</p></div></li>
+            <li class="grid gap-4 rounded-2xl border border-slate-200 p-6 sm:grid-cols-[4rem_1fr]"><span class="font-mono text-2xl font-black text-amber-500">02</span><div><h3 class="text-xl font-black">{p('Asignar actores a roles', 'Assign actors to roles')}</h3><p class="mt-2 text-slate-600">{p('Humanos, agentes, servicios o swarms con capacidades explícitas.', 'Humans, agents, services or swarms with explicit capabilities.')}</p></div></li>
+            <li class="grid gap-4 rounded-2xl border border-slate-200 p-6 sm:grid-cols-[4rem_1fr]"><span class="font-mono text-2xl font-black text-amber-500">03</span><div><h3 class="text-xl font-black">{p('Ejecutar dentro del lifecycle', 'Execute within the lifecycle')}</h3><p class="mt-2 text-slate-600">{p('Cada transición se valida contra permisos, gates y evidencia requerida.', 'Every transition is checked against permissions, gates and required evidence.')}</p></div></li>
+            <li class="grid gap-4 rounded-2xl border border-slate-200 p-6 sm:grid-cols-[4rem_1fr]"><span class="font-mono text-2xl font-black text-amber-500">04</span><div><h3 class="text-xl font-black">{p('Conservar el registro', 'Keep the record')}</h3><p class="mt-2 text-slate-600">{p('Decisiones, sesiones, handoffs, tool runs y aprobaciones quedan en .agora/ y Git.', 'Decisions, sessions, handoffs, tool runs and approvals remain in .agora/ and Git.')}</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-slate-200 bg-stone-50 py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl"><p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-teal-700">Agora ecosystem</p><h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">{p('Tres proyectos. Una sola fuente de reglas.', 'Three projects. One source of rules.')}</h2></div>
+        <div class="mt-14 grid gap-6 lg:grid-cols-3">
+          <article class="rounded-3xl border-2 border-slate-950 bg-white p-8"><div class="font-mono text-xs text-teal-700">AGORA CORE</div><h3 class="mt-5 text-3xl font-black">{p('Gobernanza y estado durable', 'Governance and durable state')}</h3><p class="mt-4 leading-7 text-slate-600">{p('Servicios de aplicación, CLI, Method Packs, Tool Packs, gates, evidencia y persistencia.', 'Application services, CLI, Method Packs, Tool Packs, gates, evidence and persistence.')}</p><a href="https://github.com/Modern-Ash/agora" class="mt-7 inline-flex font-bold underline decoration-amber-400 decoration-4 underline-offset-4">GitHub ↗</a></article>
+          <article class="rounded-3xl border border-slate-300 bg-white p-8"><div class="font-mono text-xs text-teal-700">AGORA STUDIO</div><h3 class="mt-5 text-3xl font-black">{p('Control plane visual local', 'Local visual control plane')}</h3><p class="mt-4 leading-7 text-slate-600">{p('Explora proyectos, trabajo, lifecycle, actividad, evidencia, trazabilidad y gates.', 'Browse projects, work, lifecycle, activity, evidence, traceability and gates.')}</p><a href="https://github.com/Modern-Ash/agora-studio" class="mt-7 inline-flex font-bold underline decoration-amber-400 decoration-4 underline-offset-4">GitHub ↗</a></article>
+          <article class="rounded-3xl border border-slate-300 bg-white p-8"><div class="font-mono text-xs text-teal-700">TRUCO AGORA</div><h3 class="mt-5 text-3xl font-black">{p('Demostración ejecutable', 'Executable demonstration')}</h3><p class="mt-4 leading-7 text-slate-600">{p('Juego, agentes LLM, proveedores locales, observabilidad y registros de desarrollo gobernado.', 'Game, LLM agents, local providers, observability and governed development records.')}</p><a href="https://github.com/Modern-Ash/truco-agora" class="mt-7 inline-flex font-bold underline decoration-amber-400 decoration-4 underline-offset-4">GitHub ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-amber-300 py-20">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+        <div><p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-amber-950/70">{p('Estado del producto', 'Product status')}</p><h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950">{p('Listo para evaluación y pilotos controlados.', 'Ready for evaluation and controlled pilots.')}</h2><p class="mt-4 max-w-3xl text-lg leading-8 text-amber-950">{p('Agora es software alpha. Los contratos CLI y Markdown todavía pueden evolucionar antes de 1.0; cada organización debe revisar permisos, Method Packs, adapters y aislamiento.', 'Agora is alpha software. CLI and Markdown contracts may evolve before 1.0; every organization must review permissions, Method Packs, adapters and isolation.')}</p></div>
+        <div class="flex flex-col gap-3"><a href={devengage} class="rounded-full bg-slate-950 px-7 py-3 text-center font-black text-white">{p('Adoptar con DevEngage.AI', 'Adopt with DevEngage.AI')}</a><a href={contact} class="rounded-full border-2 border-slate-950 px-7 py-3 text-center font-black text-slate-950">{p('Hablar con ModernAsh', 'Talk to ModernAsh')}</a></div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</MainLayout>

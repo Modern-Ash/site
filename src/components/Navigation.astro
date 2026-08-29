@@ -3,59 +3,88 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const homePath = lang === 'es' ? '/' : '/en';
+const navItems = [
+  { href: homePath, label: t('nav.home') },
+  { href: lang === 'es' ? '/agora' : '/en/agora', label: t('nav.agora') },
+  { href: lang === 'es' ? '/servicios' : '/en/services', label: t('nav.services') },
+  { href: lang === 'es' ? '/blog' : '/en/blog', label: t('nav.blog') },
+  { href: lang === 'es' ? '/nosotros' : '/en/about', label: t('nav.about') },
+];
+const isActive = (href: string) => href === homePath ? currentPath === homePath : currentPath.startsWith(href);
 ---
 
-<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-lg border-b border-slate-200/50">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between gap-6 py-4">
+<nav class="sticky top-0 z-50 border-b border-slate-200/80 bg-stone-50/90 backdrop-blur-xl" aria-label={lang === 'es' ? 'Navegación principal' : 'Primary navigation'}>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex min-h-20 items-center justify-between gap-5">
       <a href={lang === 'es' ? '/' : '/en'} class="flex items-center gap-3">
         <img src="/logo.svg" alt="ModernAsh" class="h-10 w-10" />
-        <span class="text-2xl font-bold text-slate-900 tracking-tight">
-          Modern<span class="text-slate-600">Ash</span>
+        <span class="text-xl font-black tracking-tight text-slate-950 sm:text-2xl">
+          Modern<span class="text-slate-500">Ash</span>
         </span>
       </a>
 
-      <div class="hidden md:flex items-center gap-3 text-sm font-medium text-slate-600">
-        <a href={lang === 'es' ? '/' : '/en'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
-          {t('nav.home')}
-        </a>
-        <a href={lang === 'es' ? '/servicios' : '/en/services'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
-          {t('nav.services')}
-        </a>
-        <a href={lang === 'es' ? '/devengage' : '/en/devengage'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
-          {t('nav.devengage')}
-        </a>
-        <a href={lang === 'es' ? '/nosotros' : '/en/about'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
-          {t('nav.about')}
-        </a>
-        <a href={lang === 'es' ? '/blog' : '/en/blog'} class="rounded-full px-4 py-2 hover:bg-slate-100 hover:text-slate-900 transition-all">
-          {t('nav.blog')}
-        </a>
+      <div class="hidden items-center gap-1 text-sm font-semibold text-slate-600 lg:flex">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            class:list={[
+              'rounded-full px-4 py-2.5 transition-colors',
+              isActive(item.href) ? 'bg-slate-950 text-white' : 'hover:bg-white hover:text-slate-950',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
         <a
           href={lang === 'es' ? '/contacto' : '/en/contact'}
-          class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-slate-800 to-slate-900 px-5 py-2 text-white shadow-sm shadow-slate-400/30 transition-all hover:-translate-y-0.5 hover:shadow-md"
+          class="ml-2 inline-flex items-center rounded-full bg-amber-400 px-5 py-2.5 font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-amber-300"
         >
-          <span class="text-sm font-semibold">{t('nav.contact')}</span>
+          {t('nav.contact')}
         </a>
       </div>
 
-      <a
-        href={lang === 'es' ? '/en' : '/'}
-        class="hidden md:inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white transition-all language-switcher"
-        data-target-lang={lang === 'es' ? 'en' : 'es'}
-      >
-        {lang === 'es' ? (
-          <>
-            <span class="text-lg leading-none">🇺🇸</span>
-            <span class="text-sm">EN</span>
-          </>
-        ) : (
-          <>
-            <span class="text-lg leading-none">🇪🇸</span>
-            <span class="text-sm">ES</span>
-          </>
-        )}
-      </a>
+      <div class="hidden items-center xl:flex">
+        <a
+          href={lang === 'es' ? '/en' : '/'}
+          class="language-switcher inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-300 px-3 text-sm font-semibold text-slate-700 transition hover:bg-white"
+          data-target-lang={lang === 'es' ? 'en' : 'es'}
+        >
+          <span aria-hidden="true">{lang === 'es' ? '🇺🇸' : '🇪🇸'}</span>
+          <span>{lang === 'es' ? 'EN' : 'ES'}</span>
+        </a>
+      </div>
+
+      <details class="relative lg:hidden">
+        <summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-bold text-slate-950 marker:content-none">
+          <span>{lang === 'es' ? 'Menú' : 'Menu'}</span>
+          <span aria-hidden="true">＋</span>
+        </summary>
+        <div class="absolute right-0 top-14 w-[min(19rem,calc(100vw-2rem))] rounded-2xl border border-slate-200 bg-white p-3 shadow-2xl">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class:list={[
+                'block rounded-xl px-4 py-3 text-sm font-semibold',
+                isActive(item.href) ? 'bg-slate-950 text-white' : 'text-slate-700 hover:bg-slate-100',
+              ]}
+            >{item.label}</a>
+          ))}
+          <a href={lang === 'es' ? '/contacto' : '/en/contact'} class="mt-2 block rounded-xl bg-amber-400 px-4 py-3 text-sm font-bold text-slate-950">
+            {t('nav.contact')}
+          </a>
+          <a
+            href={lang === 'es' ? '/en' : '/'}
+            class="language-switcher mt-2 block rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-100"
+            data-target-lang={lang === 'es' ? 'en' : 'es'}
+          >
+            {lang === 'es' ? 'View in English' : 'Ver en español'}
+          </a>
+        </div>
+      </details>
     </div>
   </div>
 </nav>
@@ -63,15 +92,14 @@ const t = useTranslations(lang);
 <script>
   // Guardar preferencia de idioma cuando el usuario cambia manualmente
   document.addEventListener('DOMContentLoaded', () => {
-    const languageSwitcher = document.querySelector('.language-switcher');
-    if (languageSwitcher) {
+    const languageSwitchers = document.querySelectorAll('.language-switcher');
+    languageSwitchers.forEach((languageSwitcher) => {
       languageSwitcher.addEventListener('click', () => {
         const targetLang = languageSwitcher.getAttribute('data-target-lang');
         if (targetLang) {
           localStorage.setItem('preferredLanguage', targetLang);
         }
       });
-    }
+    });
   });
 </script>
-

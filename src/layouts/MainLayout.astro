@@ -1,22 +1,33 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl } from '../i18n/utils';
 import LanguageRedirect from '../components/LanguageRedirect.astro';
 
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image = '/logo-original.png' } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(image, Astro.site);
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description || "ModernAsh - AI-Assisted Legacy Modernization"} />
+    <meta name="description" content={description || "ModernAsh — software modernization and governed AI delivery"} />
     <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} - ModernAsh`} />
+    <meta property="og:description" content={description || "ModernAsh — software modernization and governed AI delivery"} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -32,9 +43,23 @@ const lang = getLangFromUrl(Astro.url);
     <meta name="generator" content={Astro.generator} />
     <title>{title} - ModernAsh</title>
   </head>
-  <body class="bg-slate-50 text-slate-900">
+  <body class="bg-stone-50 text-slate-950 antialiased">
     <LanguageRedirect />
     <slot />
   </body>
 </html>
 
+<style is:global>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  ::selection { background: #fbbf24; color: #0f172a; }
+  :focus-visible { outline: 3px solid #14b8a6; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

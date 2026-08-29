@@ -8,6 +8,7 @@ export const defaultLang = 'es';
 export const ui = {
   es: {
     'nav.home': 'Inicio',
+    'nav.agora': 'Agora',
     'nav.services': 'Servicios',
     'nav.devengage': 'DevEngage.AI',
     'nav.about': 'Nosotros',
@@ -31,6 +32,7 @@ export const ui = {
   },
   en: {
     'nav.home': 'Home',
+    'nav.agora': 'Agora',
     'nav.services': 'Services',
     'nav.devengage': 'DevEngage.AI',
     'nav.about': 'About',
@@ -53,4 +55,3 @@ export const ui = {
     'team.subtitle': 'Proven experience in enterprise technology transformation',
   },
 } as const;
-

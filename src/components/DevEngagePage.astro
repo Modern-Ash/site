@@ -1,0 +1,81 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from './Navigation.astro';
+import Footer from './Footer.astro';
+
+interface Props { lang: 'es' | 'en'; }
+const { lang } = Astro.props;
+const es = lang === 'es';
+const p = (spanish: string, english: string) => es ? spanish : english;
+const agora = es ? '/agora' : '/en/agora';
+const contact = es ? '/contacto' : '/en/contact';
+---
+
+<MainLayout
+  title="DevEngage.AI"
+  description={p(
+    'Servicio profesional de ModernAsh para adoptar Agora e integrar agentes de IA con roles, permisos, evidencia y aprobaciones explícitas.',
+    'ModernAsh professional service for adopting Agora and integrating AI agents through explicit roles, permissions, evidence and approvals.'
+  )}
+>
+  <Navigation />
+  <main id="main-content">
+    <section class="relative overflow-hidden bg-slate-950 text-white">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#0d94882e,transparent_35%),radial-gradient(circle_at_80%_70%,#fbbf2420,transparent_35%)]"></div>
+      <div class="relative mx-auto grid min-h-[680px] max-w-7xl items-center gap-14 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8">
+        <div>
+          <div class="flex flex-wrap gap-2"><span class="rounded-full bg-blue-500 px-4 py-2 text-xs font-black uppercase tracking-[0.18em]">Professional service</span><span class="rounded-full border border-teal-300/50 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-teal-300">Powered by Agora</span></div>
+          <h1 class="mt-8 text-5xl font-black leading-[0.98] tracking-[-0.05em] sm:text-6xl lg:text-7xl">{p('Adoptá agentes de IA', 'Adopt AI agents')} <span class="text-amber-300">{p('sin perder el control del delivery.', 'without losing control of delivery.')}</span></h1>
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">{p('DevEngage.AI es el servicio de ModernAsh para diseñar, implementar y acompañar procesos de desarrollo gobernados con Agora dentro de repositorios reales.', 'DevEngage.AI is ModernAsh’s service for designing, implementing and supporting Agora-governed development processes inside real repositories.')}</p>
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row"><a href={contact} class="inline-flex min-h-12 items-center justify-center rounded-full bg-amber-400 px-7 font-black text-slate-950">{p('Evaluar un piloto', 'Evaluate a pilot')}</a><a href={agora} class="inline-flex min-h-12 items-center justify-center rounded-full border border-slate-600 px-7 font-bold text-white hover:border-teal-300">{p('Conocer Agora', 'Explore Agora')}</a></div>
+        </div>
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/80 p-7 shadow-2xl">
+          <p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{p('Relación producto / servicio', 'Product / service relationship')}</p>
+          <div class="mt-6 rounded-2xl border border-teal-500/40 bg-teal-400/5 p-6"><span class="font-mono text-xs text-teal-300">PRODUCT</span><h2 class="mt-2 text-2xl font-black">Agora</h2><p class="mt-2 leading-7 text-slate-300">{p('Protocolo, herramientas y estado durable.', 'Protocol, tools and durable state.')}</p></div>
+          <div class="mx-auto h-10 w-px bg-slate-600"></div>
+          <div class="rounded-2xl border border-blue-400/40 bg-blue-400/5 p-6"><span class="font-mono text-xs text-blue-300">SERVICE</span><h2 class="mt-2 text-2xl font-black">DevEngage.AI</h2><p class="mt-2 leading-7 text-slate-300">{p('Adopción, configuración, piloto y cambio operativo.', 'Adoption, configuration, pilot and operating change.')}</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-stone-50 py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl"><p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-blue-700">{p('Definición precisa', 'A precise definition')}</p><h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">{p('No instalamos una herramienta. Diseñamos un modelo operativo.', 'We do not install a tool. We design an operating model.')}</h2></div>
+        <div class="mt-14 grid gap-6 lg:grid-cols-2">
+          <article class="rounded-3xl border border-slate-200 bg-white p-8"><span class="font-mono text-xs font-bold text-blue-700">DEVENGAGE.AI IS</span><ul class="mt-6 space-y-5 text-lg text-slate-700"><li class="flex gap-3"><span class="font-black text-teal-600">＋</span>{p('Un servicio de assessment, diseño y adopción.', 'An assessment, design and adoption service.')}</li><li class="flex gap-3"><span class="font-black text-teal-600">＋</span>{p('Una implementación de governed delivery con Agora.', 'An implementation of governed delivery with Agora.')}</li><li class="flex gap-3"><span class="font-black text-teal-600">＋</span>{p('Un piloto controlado sobre trabajo real.', 'A controlled pilot on real work.')}</li><li class="flex gap-3"><span class="font-black text-teal-600">＋</span>{p('Capacitación, acompañamiento y roadmap.', 'Training, coaching and a roadmap.')}</li></ul></article>
+          <article class="rounded-3xl border border-slate-300 bg-slate-100 p-8"><span class="font-mono text-xs font-bold text-slate-600">DEVENGAGE.AI IS NOT</span><ul class="mt-6 space-y-5 text-lg text-slate-700"><li class="flex gap-3"><span class="font-black text-amber-600">−</span>{p('Otro producto que compite con Agora.', 'Another product competing with Agora.')}</li><li class="flex gap-3"><span class="font-black text-amber-600">−</span>{p('Un reemplazo de Scrum, Kanban, GitHub o Jira.', 'A replacement for Scrum, Kanban, GitHub or Jira.')}</li><li class="flex gap-3"><span class="font-black text-amber-600">−</span>{p('Una promesa de autonomía sin supervisión.', 'A promise of unsupervised autonomy.')}</li><li class="flex gap-3"><span class="font-black text-amber-600">−</span>{p('Una garantía automática sobre cualquier resultado de IA.', 'An automatic guarantee for arbitrary AI output.')}</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-[.75fr_1.25fr]">
+          <div><p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-blue-700">{p('Entregables del piloto', 'Pilot deliverables')}</p><h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">{p('De la intención a un workflow ejecutable.', 'From intent to an executable workflow.')}</h2><p class="mt-6 text-lg leading-8 text-slate-600">{p('El alcance se adapta al equipo, pero el resultado debe ser concreto, inspeccionable y transferible.', 'Scope adapts to the team, but the result must be concrete, inspectable and transferable.')}</p></div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            {[['01',p('Assessment de uso y riesgos de IA', 'AI usage and risk assessment')],['02',p('Mapa de actores, roles y permisos', 'Actor, role and permission map')],['03',p('Method Pack adaptado al proceso', 'Method Pack adapted to the process')],['04',p('Gates, evidencia y aprobaciones', 'Gates, evidence and approvals')],['05',p('Piloto en un repositorio real', 'Pilot in a real repository')],['06',p('Capacitación y roadmap de adopción', 'Training and adoption roadmap')]].map(([number,title]) => (
+              <article class="rounded-2xl border border-slate-200 p-6 transition hover:border-blue-400 hover:shadow-lg"><span class="font-mono text-xs font-bold text-blue-700">{number}</span><h3 class="mt-4 text-xl font-black">{title}</h3></article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-950 py-24 text-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl"><p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-teal-300">{p('El engagement', 'The engagement')}</p><h2 class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">{p('Cuatro etapas, una transferencia explícita.', 'Four stages, one explicit transfer.')}</h2></div>
+        <ol class="mt-14 grid gap-4 lg:grid-cols-4">
+          <li class="border-l-2 border-amber-300 p-6"><span class="font-mono text-xs text-amber-300">01 / ASSESS</span><h3 class="mt-4 text-2xl font-black">{p('Entender', 'Understand')}</h3><p class="mt-3 leading-7 text-slate-400">{p('Stack, proceso, uso real de IA, riesgos y oportunidades.', 'Stack, process, actual AI use, risks and opportunities.')}</p></li>
+          <li class="border-l-2 border-teal-300 p-6"><span class="font-mono text-xs text-teal-300">02 / DESIGN</span><h3 class="mt-4 text-2xl font-black">{p('Diseñar', 'Design')}</h3><p class="mt-3 leading-7 text-slate-400">{p('Método, actores, autoridad, gates y evidencia requerida.', 'Method, actors, authority, gates and required evidence.')}</p></li>
+          <li class="border-l-2 border-blue-300 p-6"><span class="font-mono text-xs text-blue-300">03 / PILOT</span><h3 class="mt-4 text-2xl font-black">{p('Ejecutar', 'Execute')}</h3><p class="mt-3 leading-7 text-slate-400">{p('Trabajo real con sesiones, artefactos, revisión y métricas.', 'Real work with sessions, artifacts, review and metrics.')}</p></li>
+          <li class="border-l-2 border-white p-6"><span class="font-mono text-xs text-slate-300">04 / ADOPT</span><h3 class="mt-4 text-2xl font-black">{p('Transferir', 'Transfer')}</h3><p class="mt-3 leading-7 text-slate-400">{p('Capacitación, decisiones documentadas y próximos pasos.', 'Training, documented decisions and next steps.')}</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="bg-blue-600 py-20 text-white">
+      <div class="mx-auto flex max-w-5xl flex-col items-start justify-between gap-8 px-4 sm:px-6 md:flex-row md:items-center lg:px-8"><div><p class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-blue-100">{p('Primer paso', 'First step')}</p><h2 class="mt-3 text-4xl font-black tracking-tight">{p('Elegí un equipo y un repositorio para el piloto.', 'Choose one team and one repository for the pilot.')}</h2></div><a href={contact} class="inline-flex min-h-12 shrink-0 items-center rounded-full bg-white px-7 font-black text-blue-800">{p('Agendar conversación', 'Schedule a conversation')}</a></div>
+    </section>
+  </main>
+  <Footer />
+</MainLayout>
