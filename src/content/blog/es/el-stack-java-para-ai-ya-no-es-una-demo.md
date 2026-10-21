@@ -186,7 +186,7 @@ Si no puedes llenar esa página, todavía no estás eligiendo stack. Estás elig
 
 ## En esta serie
 
-Esta pieza es la guia de eleccion del stack. Las otras dos cubren el terreno donde cada framework se usa:
+Esta pieza es la guía de elección del stack. Las otras dos cubren el terreno donde cada framework se usa:
 
 - [Spring AI 2.0.1: RAG en Java sin prompts sueltos ni glue code fragil](https://modern-ash.com/blog/spring-ai-2-0-1-rag-java-sin-glue-code-fragil/) - como pasar de una demo RAG a una arquitectura gobernable con retrievers, advisors, contratos de salida, observabilidad y fallbacks.
 - [Spring AI: el puente de Java enterprise hacia agentes gobernados](https://modern-ash.com/blog/spring-ai-es-el-puente-de-java-enterprise-hacia-agentes-gobernados/) - por que Spring AI es integracion de aplicacion y la gobernanza vive fuera del framework.
