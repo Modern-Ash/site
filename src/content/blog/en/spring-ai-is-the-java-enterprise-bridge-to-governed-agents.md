@@ -20,7 +20,9 @@ The thesis is simple: Spring AI is the Java enterprise bridge to governed agents
 
 This post is deliberately narrow. It covers the **governance boundary** for Java agent and RAG workflows: what Spring AI gives you, what it does not give you, and what you have to build around it before the workflow touches production data or takes actions through tools.
 
-It does not re-teach Spring AI architecture, which is covered in a separate piece in this series, and it does not cover enterprise agent operations and platform ownership, which is covered in another. The claim here is the narrow one: Spring AI supports application-level agent and RAG patterns, and production governance still requires evals, observability, policy, cost controls, model routing, and rollout and rollback systems outside the framework.
+It does not re-teach Spring AI architecture. That is covered in [Spring AI 2.0.1: RAG in Java without loose prompts or fragile glue code](https://modern-ash.com/blog/spring-ai-2-0-1-rag-java-sin-glue-code-fragil/) (published in Spanish). It also does not cover enterprise agent operations and platform ownership, which is covered in [Enterprise Agents Are Becoming Platforms, Not Demos](https://modern-ash.com/en/blog/enterprise-agents-platform-operations/).
+
+The claim here is the narrow one: Spring AI supports application-level agent and RAG patterns, and production governance still requires evals, observability, policy, cost controls, model routing, and rollout and rollback systems outside the framework.
 
 ## Why Java Teams Need a Bridge
 

@@ -20,7 +20,9 @@ La tesis es simple: Spring AI es el puente de Java enterprise hacia agentes gobe
 
 Esta entrada es deliberadamente acotada. Cubre la **frontera de gobernanza** para workflows de agentes y RAG en Java: que te da Spring AI, que no te da, y que tenes que construir alrededor antes de que el workflow toque datos productive o ejecute acciones mediante tools.
 
-No repite la arquitectura de Spring AI, que esta cubierta en otra pieza de esta serie, ni cubre las operaciones de agentes enterprise y la propiedad de la plataforma, que esta cubierta en otra. El claim de este articulo es el acotado: Spring AI soporta patrones de agentes y RAG a nivel de aplicacion, y la gobernanza de produccion sigue necesitando evals, observabilidad, politicas, controles de costo, model routing y sistemas de rollout y rollback por fuera del framework.
+No repite la arquitectura de Spring AI. Eso esta cubierto en [Spring AI 2.0.1: RAG en Java sin prompts sueltos ni glue code fragil](https://modern-ash.com/blog/spring-ai-2-0-1-rag-java-sin-glue-code-fragil/). Tampoco cubre las operaciones de agentes enterprise y la propiedad de la plataforma, que esta cubierto en [Enterprise Agents Are Becoming Platforms, Not Demos](https://modern-ash.com/en/blog/enterprise-agents-platform-operations/) (publicado en ingles).
+
+El claim de este articulo es el acotado: Spring AI soporta patrones de agentes y RAG a nivel de aplicacion, y la gobernanza de produccion sigue necesitando evals, observabilidad, politicas, controles de costo, model routing y sistemas de rollout y rollback por fuera del framework.
 
 ## Por que los equipos Java necesitan un puente
 
